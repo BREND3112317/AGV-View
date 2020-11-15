@@ -1,0 +1,341 @@
+<html lang="en" class=""><head>
+
+    <meta charset="UTF-8">
+  
+    <style class="INLINE_PEN_STYLESHEET_ID">
+      
+    </style>
+  
+    
+  <script src="https://static.codepen.io/assets/editor/iframe/iframeConsoleRunner-7f4d47902dc785f30dedcac9c996b9f31d4dfcc33567cc48f0431bc918c2bf05.js"></script>
+  <script src="https://static.codepen.io/assets/editor/iframe/iframeRefreshCSS-e03f509ba0a671350b4b363ff105b2eb009850f34a2b4deaadaa63ed5d970b37.js"></script>
+  <script src="https://static.codepen.io/assets/editor/iframe/iframeRuntimeErrors-29f059e28a3c6d3878960591ef98b1e303c1fe1935197dae7797c017a3ca1e82.js"></script>
+  
+  </head>
+  
+  <body style="background-color: rgb(17, 17, 17);">
+    
+    
+    
+  <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+  <script src="https://zimjs.org/cdn/createjs_1.1_min.js"></script>
+  <script src="https://zimjs.org/cdn/zim_10.4.0.js"></script>
+  <script src="https://zimjs.org/cdn/icon3.js"></script>
+  <script src="https://zimjs.org/cdn/easystar-0.4.3.min.js"></script>
+  <script src="https://zimjs.org/cdn/game_2.0.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2104200/maze.js"></script>
+    <script id="INLINE_PEN_JS_ID">
+      const frame = new Frame({
+    scaling: "fit",
+    width: 1024,
+    height: 768,
+    color: "lightblue",
+    outerColor: darker,
+    allowDefault: true // code pen only needs this it seems with keyboard
+  });
+  frame.on("ready", () => {
+    zog("ready from ZIM Frame"); // logs in console (F12 - choose console)
+  
+    const stage = frame.stage;
+    const stageW = frame.width;
+    const stageH = frame.height;
+  
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // BOARD
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+    // the Board() class - not to be confused with the LeaderBoard() class ;-)
+    // this defaults to isometric but can be used with top view
+    // or toggled later with board.isometric = false;
+  
+    const board = new Board({
+      backgroundColor: grey,
+      info: data, // from info file made using board.record();
+      arrows: false, // hide board arrows so can't scroll to see full maze
+      indicatorBorderColor: silver }).
+    center();
+    board.positionBoard(6, 6); // start in the middle of the info
+  
+    board.tiles.tap(e => {
+      if (player.moving) return; // moving pieces given moving property
+      if (path) {// because rolled over already
+        board.followPath(player, path, null, null, 2); // nudge camera 2
+        path = null;
+      } else {// could be tapping or on mobile with no rollover
+        getPath(true); // see below... true to follow it once found
+      }
+      stage.update();
+    });
+  
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // BOARD ITEMS
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+    // add a player and key controls
+    // provide the keys with the allowed data squares
+    const player = new Person(yellow, silver, brown);
+    board.
+    add(player, 6, 6) // can only add() to the board (otherwise use board.info)
+    .addKeys(player, "arrows", { data: "x" }).
+    addKeys(player, "wasd", { data: "x" }); // or control something else with wasd
+  
+    // add a ZIM Emitter to introduce an Orb!
+    const emitter = new Emitter({
+      startPaused: true,
+      obj: [new Rectangle(16, 16), new Triangle(20, 20, 20), new Circle(10)],
+      random: { color: [blue, green, pink] },
+      life: 1000,
+      shrink: false,
+      force: 7.5,
+      gravity: 15,
+      animation: {
+        time: 1000,
+        props: { scale: 3, rotation: { min: 100, max: 360, negative: true } } },
+  
+      angle: { min: -110, max: -70 } }).
+    center();
+    board.add(emitter, 1, 1);
+    emitter.spurt(12);
+  
+    // Create an Orb that is the final maze destiation
+    const orb = new Orb({ color2: white }).
+    alp(0).
+    animate({
+      props: { alpha: 1 },
+      time: 300,
+      wait: 600 });
+  
+    board.add(orb, 1, 1);
+  
+    // Place trees on random dark grey squares
+    // dark squares were given info data of 0 
+    // when making the info - see https://zimjs.com/iso/
+    loop(board.info, (row, j) => {
+      loop(row, (info, i) => {
+        if (info.data == 0 && rand() > .4) {
+          // places not to put a tree relative to info (not board)
+          // there are 6 info array items on all sides of the board 
+          // so 6+3 -1 for using 0 index is where we do not want a tree
+          // otherwise it sits in front of the orb, etc.
+          if (
+          i == 8 && j == 8 || // in front of orb
+          i == 13 && j == 13 || // in front of person
+          i == 11 && j == 11 || // behind person
+          i == 12 && j == 6 // on front of score
+          ) return;
+          // can't use add() for items outside the board 
+          // so just manipulate the info array 
+          // and then will need to board.update() 
+          // to see any changes to the items on the board
+          info.items.push(new Tree().alp(.9));
+          info.color = darker;
+        }
+      });
+    });
+    board.update();
+  
+  
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // TIMER AND SCORER
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+    // set a timer to be positioned isometric left
+    const timer = new Timer({
+      time: 100,
+      borderColor: dark,
+      isometric: "left" }).
+    loc(27, 231, stage, 0); // .place();
+    timer.on("complete", () => {
+      timer.backing.color = red;
+      timer.color = white;
+      stage.update();
+    });
+  
+    // set a Scorer to be positioned isometric right
+    // isometric right gets registration on top right
+    // this allows the Timer and Scorer to toggle to top view evenly
+    const scorer = new Scorer({
+      score: 100,
+      backgroundColor: orange,
+      borderColor: dark,
+      isometric: "right" }).
+    loc(stageW - 27, 231, stage, 0); // .place();
+  
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // NAVIGATION AT BOTTOM
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+    // const isom = new Button({
+    // label:"TOP",
+    // toggle:"ISO",
+    // corner:0,
+    // backgroundColor:pink,
+    // rollBackgroundColor:green,
+    // shadowBlur:5,
+    // shadowColor:"rgba(0,0,0,.2)"
+    // }).loc(465, 703).sca(.5)
+    // isom.on("mousedown", ()=>{
+    // // toggle the isometric properties
+    // // watch out for "left" and "right" values 
+    // 	// instead of true for timer and scorer (true will give "left")
+    // 	zog("hello")
+    // // board.isometric = !board.isometric;
+    // // timer.isometric = timer.isometric?false:"left";
+    // // scorer.isometric = scorer.isometric?false:"right";
+    // });
+  
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // PATH FINDING
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+    // simple single cost example - see https://zimjs.com/iso for more!
+  
+    const AI = new EasyStar.js();
+    AI.setTileCost("x", 0); // nothing
+    AI.setAcceptableTiles(["x"]); // default lighter grey tile
+    let pathID;
+    let ticker;
+    let path;
+    board.on("change", () => {// change triggers when rolled over square changes
+      if (player.moving) return;
+      getPath(); // just get path - don't go to path with the go parameter true
+    });
+  
+    function getPath(go) {// called from change (mouseover) and from tap
+      AI.setGrid(board.data); // a subset of the info array with only data values
+      // cancel any previous path and ticker
+      AI.cancelPath(pathID);
+      if (ticker) Ticker.remove(ticker);
+      // if no currentTile then mouse is outside board
+      if (!board.currentTile) {
+        board.clearPath();
+        path = null;
+        return;
+      }
+      // get a path from the player to the currentTile 
+      // currentTile is the selected or highlighted tile
+      pathID = AI.findPath(
+      player.boardCol, // any board item has a boardCol prop
+      player.boardRow,
+      board.currentTile.boardCol, // any tile has a boardColo prop
+      board.currentTile.boardRow,
+      function (thePath) {// the callback function when path is found
+        path = thePath;
+        Ticker.remove(ticker);
+        board.showPath(path);
+        if (go) {// from a press on the tile
+          board.followPath(player, path, null, null, 2); // nudge camera 2
+          path = null;
+        }
+      });
+  
+      // must calculate the path in a Ticker
+      ticker = Ticker.add(() => {AI.calculate();});
+    }
+  
+  
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // COLLECTING AND SCORING
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+    const leaderBoard = new zim.LeaderBoard({
+      title: "TREE MAZE",
+      font: "verdana",
+      data: "UFU7SM", // see https://zimjs.com/leaderboard/ 
+      // note when entering domain for the LeaderBoard 
+      // and you are using the LeaderBoard for codepen examples, 
+      // use the domain for the frame that holds the example 
+      // right click on frame and say view frame source
+      // and look at domain in the url ofo the browser bar at top
+      // we have had different domains switch back and forth 
+      // try entering: cdpn.io,s.codepen.io for the domain
+      backgroundColor: yellow,
+      colors: {
+        // sorry for the property names
+        currentRankBackgroundColor: orange,
+        currentNameBackgroundColor: orange,
+        currentScoreBackgroundColor: orange,
+        currentScoreColor: white } });
+  
+  
+  
+    player.moveEvent = player.on("moving", () => {
+      timeout(50, () => {
+        if (player.boardTile == orb.boardTile) {
+          player.off("moving", player.moveEvent);
+          // move orb and particles above player
+          let playerIndex = player.parent.getChildIndex(player);
+          emitter.parent.setChildIndex(emitter.particles, playerIndex + 1);
+          orb.parent.setChildIndex(orb, playerIndex + 1);
+          emitter.spurt(12);
+          orb.animate({
+            props: { alpha: 0 },
+            wait: 300,
+            time: 300,
+            call: () => {
+              board.remove(orb);
+              scorer.score += timer.time * 5;
+              timer.stop();
+              frame.allowDefault = false; // messing up LeaderBoard with allowDefault true
+              timeout(1000, () => {
+                leaderBoard.center().score(scorer.score);
+                leaderBoard.on("close", () => {
+                  zgo("https://zimjs.com/iso/", "_blank");
+                });
+              });
+              stage.update();
+            } });
+  
+        }
+      });
+  
+    });
+  
+    player.on("moved", () => {
+      scorer.score = scorer.score - 1;
+    });
+  
+  
+    new Label("ZIM GAME MODULE 2 - Board()").
+    sca(.6).alp(.6).loc(20, 20, stage, 0);
+  
+    // DOCS FOR ITEMS USED
+    // https://zimjs.com/docs.html?item=Frame
+    // https://zimjs.com/docs.html?item=Board
+    // https://zimjs.com/docs.html?item=Person
+    // https://zimjs.com/docs.html?item=Orb
+    // https://zimjs.com/docs.html?item=Tree
+    // https://zimjs.com/docs.html?item=Timer
+    // https://zimjs.com/docs.html?item=Scorer
+    // https://zimjs.com/docs.html?item=LeaderBoard
+    // https://zimjs.com/docs.html?item=Circle
+    // https://zimjs.com/docs.html?item=Rectangle
+    // https://zimjs.com/docs.html?item=Triangle
+    // https://zimjs.com/docs.html?item=Label
+    // https://zimjs.com/docs.html?item=Button
+    // https://zimjs.com/docs.html?item=tap
+    // https://zimjs.com/docs.html?item=animate
+    // https://zimjs.com/docs.html?item=loop
+    // https://zimjs.com/docs.html?item=loc
+    // https://zimjs.com/docs.html?item=alp
+    // https://zimjs.com/docs.html?item=sca
+    // https://zimjs.com/docs.html?item=center
+    // https://zimjs.com/docs.html?item=place
+    // https://zimjs.com/docs.html?item=Emitter
+    // https://zimjs.com/docs.html?item=rand
+    // https://zimjs.com/docs.html?item=timeout
+    // https://zimjs.com/docs.html?item=zog
+    // https://zimjs.com/docs.html?item=Ticker
+  
+    // FOOTER
+    // call remote script to make ZIM Foundation for Creative Coding icon
+    createIcon(frame);
+  
+    stage.update(); // this is needed to show any changes
+  
+  }); // end ready
+      //# sourceURL=pen.js
+    </script>
+  
+  
+  <canvas id="myCanvas" tabindex="0" width="906" height="680" style="background-color: lightblue; position: absolute; width: 906.667px; height: 680px; left: 826.667px; top: 0px;"></canvas></body></html>

@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"Name": "AGV",
+			"path": "."
+		}
+	],
+	"settings": {
+		"terminal.integrated.cwd": "."
+	},
+	"extensions": {
+		"recommendations": [
+			"aeschli.vscode-css-formatter",
+			"donjayamanne.githistory",
+		]
+	}
+}
