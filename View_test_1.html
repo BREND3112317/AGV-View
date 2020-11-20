@@ -18,19 +18,53 @@
   <link href="main.css" rel="stylesheet" />
   <!--AGV View CSS-->
   <link href="AGV_View.css" rel="stylesheet" />
+  <!--Dashboard SCSS-->
+  <link href="AGV_Dashboard.scss" rel="stylesheet" />
+  <!--AGV Table CSS-->
+  <link href="AGV_table.css" rel="stylesheet" />
   <title>AGV GUI test - 1</title>
     <style>
            
     </style>
   </head>
   <body>
-    <div id="AGV-View-app" class="AGV-View-App">
-
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div class="admin">
+      <header class="admin__header">
+        <a href="#" class="logo">
+          <h1>AGV</h1>
+        </a>
+        <div class="toolbar">
+          <div class="toolbar__left">
+            <!--<button class="btn btn--primary">Add content</button>-->
+          </div>
+          <div class="toolbar__right">
+            <div id="time"></div>
+          </div>
+        </div>
+      </header>
+      <nav class="admin__nav">
+        <ul class="menu">
+          <li class="menu__title">AGV</li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">Controller</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="admin__main">
+        <div id="app" class="AGV-View-App">
+          
+        </div>
+      </div>
     </div>
   </body>
   <!--ReactJS-->
-  <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+  <!-- <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script> -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
   <!--Bable-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>
   <!--AGV View JS-->

@@ -27,12 +27,12 @@ class Container extends Component {
         closePath: false
     };
     
-    componentWillMount() {
+    componentWillMount() { // 組件將安裝
         document.addEventListener("keydown", this.handleKeyDown, false)
         document.addEventListener("keyup", this.handleKeyUp, false)
     }
     
-    componentWillUnmount() {
+    componentWillUnmount() { // 組件將卸載
         document.removeEventListener("keydown")
         document.removeEventListener("keyup")
     }
@@ -72,14 +72,14 @@ class Container extends Component {
         this.setState({ grid })
     };
     
-    setGridSnap = (e) => {
+    setGridSnap = (e) => { // 設置網格捕捉
         let grid = this.state.grid
         grid.snap = e.target.checked
         
         this.setState({ grid })
     };
     
-    setGridShow = (e) => {
+    setGridShow = (e) => { // 設置網格顯示
         let grid = this.state.grid
         grid.show = e.target.checked
         
