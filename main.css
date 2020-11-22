@@ -36,6 +36,7 @@ html {
 
 html,
 body {
+    background-color: white;
     height: 100%;
     overflow-x: hidden;
     padding: 0;

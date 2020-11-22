@@ -104,7 +104,8 @@ function Grid(props){
         let grid_y = [];
         for(let j=0;j<props.width; ++i){
             grid_y.push(
-                <td id={props.O_grid[i][j].x+props.O_grid[i][j].y} className={props.unWalk.indexOf(props.O_grid[i][j].x+props.O_grid[i][j].y)!=-1 ? "unWalk" : "Walk"}></td>
+                //<td id={props.O_grid[i][j].x+props.O_grid[i][j].y} className={props.unWalk.indexOf(props.O_grid[i][j].x+props.O_grid[i][j].y)!=-1 ? "unWalk" : "Walk"}></td>
+                <td className="Walk"></td>
             )
         }
         grid.push(

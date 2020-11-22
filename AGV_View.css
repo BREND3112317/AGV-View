@@ -1,22 +1,36 @@
+.AGV-main {
+    color: var(--ad-Color-sec);
+}
+
+.Shelf-Up {
+    color: var(--ad-Color-del);
+}
+
 .AGV-View-Container {
     height: 100%;
     width: 100%;
     display: flex;
-    background: rgb(255, 255, 255);
+    background: #dadada;
 }
     .AGV-View-Container-main {
         height: 100%;
         flex: 1;
         display: flex;
         flex-direction: column;
+        background-color: #dadada;
     }
-        .AGV-View-Container-svg {
+        .AGV-View-Container-grid {
             height: 100%;
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.8);
+            background: #f3f3f3;
+        }
+
+        .AGV-View-Container-table {
+            margin: 2px;
+            border: 1px solid #ffffff;
         }
 
     .AGV-View-Container-controls {
@@ -133,7 +147,7 @@
         text-transform: uppercase;
         font-size: .6rem;
         font-weight: bold;
-        color: color(var(--ad-Color-prim) l(+75%));
+        color: color(var(--text-color-white) l(+75%));
     }
 .AGV-View-Result {
     height: 5rem;
