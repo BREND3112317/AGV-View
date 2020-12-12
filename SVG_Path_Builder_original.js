@@ -830,7 +830,7 @@ function Controls(props) {
                         type="choices"
                         id="pointType"
                         choices={[
-                            { name: "L", value: "l", checked: (!active.q && !active.c && !active.a) },
+                            { name: "L", value: "l", checked:  !active.q && !active.c && !active.a},
                             { name: "Q", value: "q", checked: !!active.q },
                             { name: "C", value: "c", checked: !!active.c },
                             { name: "A", value: "a", checked: !!active.a }

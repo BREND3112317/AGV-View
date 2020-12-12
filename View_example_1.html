@@ -16,14 +16,7 @@
   <meta name="twitter:description" content="This Website created by Brend." />
   <title>AGV GUI  example - 1</title>
     <style>
-        @use postcss-cssnext;
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
-
-:root {
-    --ad-Color-prim: #111;
-    --ad-Color-sec: #00E676;
-    --ad-Color-del: #8A4CE0;
-}
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
 html {
     font-size: 16px;
@@ -37,41 +30,73 @@ body {
 
 .ad-App {
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 /* main layout */
 .ad-Container {
     height: 100%;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background: #fff;
 }
     .ad-Container-main {
         height: 100%;
-        flex: 1;
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
         .ad-Container-svg {
             height: 100%;
-            flex: 1;
+            -webkit-box-flex: 1;
+                -ms-flex: 1;
+                    flex: 1;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
             background: #f3f3f3;
         }
     
     .ad-Container-controls {
         overflow: hidden;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         height: 100%;
+        width: 320px;
         width: 20rem;
-        background: var(--ad-Color-prim);
+        background: #111;
     }
     .ad-Container-controls ::-webkit-scrollbar {
         width: 6px;
@@ -82,38 +107,48 @@ body {
     }
 
 .ad-Foot {
+    padding: 24px 32px;
     padding: 1.5rem 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background: #fff;
     border-top: 2px solid #eee;
 }
     .ad-Foot-list {
-        flex: 1;
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
     }
         .ad-Foot-item {
             text-transform: uppercase;
+            font-size: 11.2px;
             font-size: .7rem;
-            color: var(--ad-Color-prim);
+            color: #111;
         }
         .ad-Foot-item + .ad-Foot-item {
+            margin-top: 8px;
             margin-top: .5rem;
         }
             .ad-Foot-highlight {
+                padding-bottom: 0.64px;
                 padding-bottom: .04rem;
-                border-bottom: 2px solid var(--ad-Color-sec);
+                border-bottom: 2px solid #00E676;
                 font-weight: bold;
             }
     
     .ad-Foot-meta {
+        margin-left: 32px;
         margin-left: 2rem;
         text-align: right;
         line-height: 1.4;
+        font-size: 11.2px;
         font-size: .7rem;
-        color: var(--ad-Color-prim);
+        color: #111;
     }
         .ad-Foot-meta a {
             text-decoration: underline;
-            color: var(--ad-Color-prim);
+            color: #111;
         }
 
 
@@ -141,14 +176,15 @@ body {
         fill: #fff;
         stroke: #555;
         stroke-width: 5px;
+        -webkit-transition: fill .2s;
         transition: fill .2s;
     }
     .ad-Point:hover,
     .ad-PointGroup.is-active .ad-Point {
-        fill: var(--ad-Color-sec);
+        fill: #00E676;
     }
     .ad-PointGroup--first .ad-Point {
-        stroke: var(--ad-Color-sec);
+        stroke: #00E676;
     }
     .ad-Anchor {
         opacity: .5;
@@ -171,42 +207,57 @@ body {
 /* controls on the right */
 .ad-Controls {
     overflow: auto;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding: 32px;
     padding: 2rem;
 }
     .ad-Controls :first-child {
         margin-top: 0;
     }
     .ad-Controls-title {
+        margin: 48px 0 24px;
         margin: 3rem 0 1.5rem;
+        font-size: 12.8px;
         font-size: .8rem;
         font-weight: bold;
         color: #fff;
     }
         .ad-Controls-container {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
         }
         .ad-Controls-container + .ad-Controls-container {
+            margin-top: 24px;
             margin-top: 1.5rem;
         }
 
 .ad-Control {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
     .ad-Control-label {
         display: block;
+        margin-bottom: 8px;
         margin-bottom: .5rem;
         text-transform: uppercase;
+        font-size: 9.6px;
         font-size: .6rem;
         font-weight: bold;
-        color: color(var(--ad-Color-prim) l(+75%));
+        color: rgb(209, 209, 209);
     }
 
 .ad-Result {
+    height: 80px;
     height: 5rem;
+    padding: 22.4px 25.6px;
     padding: 1.4rem 1.6rem;
-    background: var(--ad-Color-prim);
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, .4);
+    background: #111;
+    -webkit-box-shadow: 0 -5px 10px rgba(0, 0, 0, .4);
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, .4);
 }
     .ad-Result-textarea {
         height: 100%;
@@ -216,6 +267,7 @@ body {
         background: none;
         text-transform: uppercase;
         font-family: "Open Sans", sans-serif;
+        font-size: 11.2px;
         font-size: .7rem;
         font-weight: bold;
         line-height: 1.8;
@@ -227,53 +279,59 @@ body {
 
 /* control elements */
 .ad-Button {
+    padding: 12.8px 22.4px;
     padding: .8rem 1.4rem;
-    background: var(--ad-Color-sec);
+    background: #00E676;
     border: none;
     border-radius: 50px;
     cursor: pointer;
+    -webkit-transition: background .2s;
     transition: background .2s;
     text-transform: uppercase;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
+    font-size: 9.6px;
     font-size: .6rem;
+    letter-spacing: 1.28px;
     letter-spacing: .08rem;
     color: #fff;
 }
 .ad-Button:focus,
 .ad-Button:hover {
     outline: 0;
-    background: color(var(--ad-Color-sec) l(+5%));
+    background: rgb(0, 255, 132);
 }
 .ad-Button--delete {
-    background: var(--ad-Color-del);
+    background: #E53935;
 }
 .ad-Button--delete:focus,
 .ad-Button--delete:hover {
-    background: color(var(--ad-Color-del) l(+5%));
+    background: rgb(232, 77, 74);
 }
 .ad-Button--reset {
-    background: color(var(--ad-Color-prim) l(+10%));
+    background: rgb(43, 43, 43);
 }
 .ad-Button--reset:focus,
 .ad-Button--reset:hover {
-    background: color(var(--ad-Color-prim) l(+15%));
+    background: rgb(56, 56, 56);
 }
 
 .ad-Text {
     height: 18px;
+    width: 32px;
     width: 2rem;
-    background: color(var(--ad-Color-prim) l(+10%));
+    background: rgb(43, 43, 43);
     border: none;
     border-radius: 4px;
     text-align: center;
     font-family: "Open Sans", sans-serif;
+    font-size: 9.6px;
     font-size: .6rem;
     color: #fff;
 }
 .ad-Text:focus {
     outline: 0;
-    background: color(var(--ad-Color-prim) l(+20%));
+    background: rgb(69, 69, 69);
 }
 
 .ad-Checkbox-input {
@@ -282,13 +340,15 @@ body {
 .ad-Checkbox-fake {
     position: relative;
     height: 14px;
+    width: 32px;
     width: 2rem;
-    background: color(var(--ad-Color-prim) l(+10%));
+    background: rgb(43, 43, 43);
     border-radius: 30px;
 }
 .ad-Checkbox-fake::after {
     content: "";
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     display: block;
     position: absolute;
     top: -2px;
@@ -297,34 +357,42 @@ body {
     width: 18px;
     cursor: pointer;
     border: 4px solid #fff;
-    background: color(var(--ad-Color-prim) l(+10%));
+    background: rgb(43, 43, 43);
     border-radius: 50%;
 }
 .ad-Checkbox-input:checked + .ad-Checkbox-fake::after {
     left: auto;
     right: 0;
-    border-color: var(--ad-Color-sec);
+    border-color: #00E676;
 }
 
 .ad-Choices {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    width: 192px;
     width: 12rem;
 }
     .ad-Choice {
-        flex: 1;
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
     }
         .ad-Choice-input {
             display: none;
         }
         .ad-Choice-fake {
+            padding: 9.6px;
             padding: .6rem;
-            background: color(var(--ad-Color-prim) l(+10%));
+            background: rgb(43, 43, 43);
             border: 4px solid transparent;
+            -webkit-transition: border .2s;
             transition: border .2s;
             cursor: pointer;
             text-align: center;
             text-transform: uppercase;
             font-family: "Open Sans", sans-serif;
+            font-size: 12.8px;
             font-size: .8rem;
             font-weight: bold;
             color: #fff;
@@ -336,26 +404,33 @@ body {
             border-radius: 0 4px 4px 0;
         }
         .ad-Choice-input:checked + .ad-Choice-fake {
-            border-color: var(--ad-Color-sec);
+            border-color: #00E676;
         }
 
 .ad-Range {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
     .ad-Range-text {
+        margin-left: 8px;
         margin-left: .5rem;
     }
     .ad-Range-input {
         width: 100%;
         height: 14px;
-        appearance: none;
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
         border-radius: 30px;
-        background: color(var(--ad-Color-prim) l(+10%));
+        background: rgb(43, 43, 43);
     }
     .ad-Range-input:focus {
         outline: 0;
-        background: color(var(--ad-Color-prim) l(+20%));
+        background: rgb(69, 69, 69);
     }
     /* thumb */
     .ad-Range-input::-webkit-slider-thumb {
@@ -363,9 +438,10 @@ body {
         width: 18px;
         height: 18px;
         border: 4px solid #fff;
-        background: color(var(--ad-Color-prim) l(+10%));
+        background: rgb(43, 43, 43);
         border-radius: 50%;
         cursor: pointer;
+        -webkit-transition: border .2s;
         transition: border .2s;
     }
     .ad-Range-input::-moz-range-thumb {
@@ -373,19 +449,20 @@ body {
         width: 18px;
         height: 18px;
         border: 4px solid #fff;
-        background: color(var(--ad-Color-prim) l(+10%));
+        background: rgb(43, 43, 43);
         border-radius: 50%;
         cursor: pointer;
+        -webkit-transition: border .2s;
         transition: border .2s;
     }
 
     .ad-Range-input:hover::-webkit-slider-thumb,
     .ad-Range-input:focus::-webkit-slider-thumb {
-        border-color: var(--ad-Color-sec);
+        border-color: #00E676;
     }
     .ad-Range-input:hover::-moz-range-thumb,
     .ad-Range-input:focus::-moz-range-thumb {
-        border-color: var(--ad-Color-sec);
+        border-color: #00E676;
     }
     </style>
 

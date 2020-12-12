@@ -20,13 +20,14 @@ ol, ul {
     float: left;
     font-size: 24px;
     font-weight: bold;
-    line-height: 50px;
-    height: 50px;
-    width: 50px;
+    line-height: 79px;
+    height: 79px;
+    width: 79px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
+    position: relative;
 }
 
 .square:focus {
@@ -51,7 +52,7 @@ ol, ul {
 }
 
 .unWalk {
-    background-color: #dadada;
+    background-color: var(--gray);
 }
 
 .tf90 {
@@ -89,5 +90,35 @@ ol, ul {
 }
 
 .AGV-canvas {
+    position: absolute;
+}
+
+.dynamic-i {
+    top: 0px;
+    left: 0px;
+    
+}
+
+.AGV {
+    opacity: 0.8;
+    position: absolute;
+    z-index: 09;
+    top: 0px;
+    left: 0px;
+    font-size: 54px;
+    color: var(--gray);
+    transition: transform 2000ms cubic-bezier(0.57, 0.31, 0.21, 0.92);
+    transition-property: top, left, transform;
+}
+
+.AGV-main {
+    color: var(--ad-Color-sec);
+}
+
+.Shelf-Up {
+    color: var(--ad-Color-del);
+}
+
+.icon-disable {
     display: none;
 }

@@ -1,4 +1,5 @@
 .AGV-main {
+    font-size: 36px;
     color: var(--ad-Color-sec);
 }
 
@@ -119,6 +120,7 @@
         }
 
 .AGV-View-Controls {
+    color: aquamarine;
     overflow: auto;
     flex: 1;
     padding: 2rem;
@@ -274,15 +276,15 @@
             font-weight: bold;
             color: #fff;
         }
-            .AGV-View-Choice:first-child .AGV-View-Choice-fake {
-                border-radius: 4px 0 0 4px;
-            }
-            .AGV-View-Choice:last-child .AGV-View-Choice-fake {
-                border-radius: 0 4px 4px 0;
-            }
-            .AGV-View-Choice-input:checked + .AGV-View-Choice-fake {
-                border-color: var(--ad-Color-sec);
-            }
+        .AGV-View-Choice:first-child .AGV-View-Choice-fake {
+            border-radius: 4px 0 0 4px;
+        }
+        .AGV-View-Choice:last-child .AGV-View-Choice-fake {
+            border-radius: 0 4px 4px 0;
+        }
+        .AGV-View-Choice-input:checked + .AGV-View-Choice-fake {
+            border-color: var(--AGV-View-Color-sec);
+        }
 .AGV-View-Range {
     display: flex;
     align-items: center;

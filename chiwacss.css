@@ -1,0 +1,21 @@
+.AGV {
+    position: absolute;
+    z-index: 09;
+    top: 37px;
+    left: 203px;
+}
+
+.AGV-View-Container-table {
+	top: 0px;
+    position: absolute;
+    left: 0px;
+}
+
+.SVG{
+	position: relative;
+    width: 345px;
+    height: 345px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}
