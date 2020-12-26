@@ -29,14 +29,21 @@
   <link href="icons/icomoon/style.css" rel="stylesheet" />
   <title>AGV GUI test - 1</title>
   <style>
+    .main {
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      position: absolute;
+      height: fit-content;
+      left: 0;
+      right: 0;
+    }
+
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      /* min-width: 300px;
-            width: 90%;
-            height: 70%; */
     }
 
     .View {
@@ -49,153 +56,173 @@
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <div id="app" class="container-fluid ad-App">
-    <div class="ad-Container">
-      <div class="ad-Container-main">
-        <div class="ad-Container-svg">
-          <table id="map" class="ad-Container-table">
-            <tbody>
-              <tr>
-                <td id="000000" class="square unWalk">
-                  <i id="ITRI_3-1" class="dynamic-i fas icon-AGV-Car AGV AGV-main" aria-hidden="true"></i>
-                </td>
-                <td id="000010" class="square unWalk" onmouseover="drawPath(1, 0)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="000020" class="square Walk" onmouseover="drawPath(2, 0)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="000030" class="square Walk" onmouseover="drawPath(3, 0)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="000040" class="square unWalk"></td>
-                <td id="000050" class="square unWalk"></td>
-                <td id="000060" class="square unWalk"></td>
-              </tr>
-              <tr>
-                <td id="010000" class="square unWalk"></td>
-                <td id="010010" class="square unWalk"></td>
-                <td id="010020" class="square Walk" onmouseover="drawPath(2, 1)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="010030" class="square Walk" onmouseover="drawPath(3, 1)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="010040" class="square Walk" onmouseover="drawPath(4, 1)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="010050" class="square unWalk" onmouseover="drawPath(5, 1)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="010060" class="square unWalk" onmouseover="drawPath(6, 1)" onmouseout="clearLastPath(lastPath)"></td>
-              </tr>
-              <tr>
-                <td id="020000" class="square unWalk"></td>
-                <td id="020010" class="square unWalk"></td>
-                <td id="020020" class="square Walk" onmouseover="drawPath(2, 2)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="020030" class="square Walk" onmouseover="drawPath(3, 2)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="020040" class="square Walk" onmouseover="drawPath(4, 2)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="020050" class="square unWalk" onmouseover="drawPath(5, 2)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="020060" class="square unWalk" onmouseover="drawPath(6, 2)" onmouseout="clearLastPath(lastPath)"></td>
-              </tr>
-              <tr>
-                <td id="030000" class="square unWalk"></td>
-                <td id="030010" class="square unWalk"></td>
-                <td id="030020" class="square Walk" onmouseover="drawPath(2, 3)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="030030" class="square Walk" onmouseover="drawPath(3, 3)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="030040" class="square Walk" onmouseover="drawPath(4, 3)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="030050" class="square Walk" onmouseover="drawPath(5, 3)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="030060" class="square unWalk" onmouseover="drawPath(6, 3)" onmouseout="clearLastPath(lastPath)"></td>
-              </tr>
-              <tr>
-                <td id="040000" class="square unWalk"></td>
-                <td id="040010" class="square Walk" onmouseover="drawPath(1, 4)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="040020" class="square Walk" onmouseover="drawPath(2, 4)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="040030" class="square Walk" onmouseover="drawPath(3, 4)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="040040" class="square Walk" onmouseover="drawPath(4, 4)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="040050" class="square Walk" onmouseover="drawPath(5, 4)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="040060" class="square unWalk" onmouseover="drawPath(6, 4)" onmouseout="clearLastPath(lastPath)"></td>
-              </tr>
-              <tr>
-                <td id="050000" class="square unWalk"></td>
-                <td id="050010" class="square Walk" onmouseover="drawPath(1, 5)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="050020" class="square Walk" onmouseover="drawPath(2, 5)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="050030" class="square Walk" onmouseover="drawPath(3, 5)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="050040" class="square Walk" onmouseover="drawPath(4, 5)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="050050" class="square Walk" onmouseover="drawPath(5, 5)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="050060" class="square unWalk"></td>
-              </tr>
-              <tr>
-                <td id="060000" class="square unWalk"></td>
-                <td id="060010" class="square Walk" onmouseover="drawPath(1, 6)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="060020" class="square Walk" onmouseover="drawPath(2, 6)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="060030" class="square Walk" onmouseover="drawPath(3, 6)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="060040" class="square Walk" onmouseover="drawPath(4, 6)" onmouseout="clearLastPath(lastPath)"></td>
-                <td id="060050" class="square Walk" onmouseover="drawPath(5, 6)"><i id="power"
-                    class="dynamic-i fas fa-charging-station" aria-hidden="true"></i></td>
-                <td id="060060" class="square unWalk"><i id="powerUnwalk" class="dynamic-i fas fa-plug tf90"
-                    aria-hidden="true"></i></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="ad-Container-controls">
-        <div class="ad-Controls">
-          <h3 class="ad-Controls-title">AGV</h3>
-          <div class="ad-Controls-container">
-            <div class="ad-Control"><label class="ad-Control-label">Service</label>
-              <div class="ad-Choices"><label class="ad-Choice"><input class="ad-Choice-input" type="radio"
-                    name="AGVName" value="ITRI_3-1">
-                  <div class="ad-Choice-fake">ITRI_3-1</div>
-                </label><label class="ad-Choice"><input class="ad-Choice-input" type="radio" name="AGVName"
-                    value="ITRI_3-2">
-                  <div class="ad-Choice-fake">ITRI_3-2</div>
-                </label><label class="ad-Choice"><input class="ad-Choice-input" type="radio" name="AGVName"
-                    value="ITRI_3-3">
-                  <div class="ad-Choice-fake">ITRI_3-3</div>
-                </label><label class="ad-Choice"><input class="ad-Choice-input" type="radio" name="AGVName"
-                    value="ITRI_3-4">
-                  <div class="ad-Choice-fake">ITRI_3-4</div>
-                </label></div>
-            </div>
-          </div>
-          <h3 class="ad-Controls-title">Status</h3>
-          <div class="ad-Controls-container">
-            <div class="ad-Control">
-              <label class="ad-Control-label">Battery</label>
-              <input id="AGV_Battery" class="ad-Text" type="text" value="-Disconnect">
-            </div>
-            <div class="ad-Control">
-              <label class="ad-Control-label">IsProgress</label>
-              <input id="AGV_IsProgress" class="ad-Text" type="text" value="-false">
-            </div>
-            <div class="ad-Control">
-              <label class="ad-Control-label">Status</label>
-              <input id="AGV_Status" class="ad-Text" type="text" value="-1">
-            </div>
-          </div>
-          <div class="ad-Controls-container">
-            <div class="ad-Control"><label class="ad-Control-label">X</label><input id="AGV_X" class="ad-Text"
-                type="text" value="-1"></div>
-            <div class="ad-Control"><label class="ad-Control-label">y</label><input id="AGV_Y" class="ad-Text"
-                type="text" value="-1"></div>
-            <div class="ad-Control"><label class="ad-Control-label">Yaw</label><input id="AGV_Yaw" class="ad-Text"
-                type="text" value="-0"></div>
-          </div>
-          <h3 class="ad-Controls-title">Shelf</h3>
-          <div class="ad-Controls-container">
-            <div class="ad-Control"><label class="ad-Control-label">X</label><input class="ad-Text" type="text"
-                value="-1"></div>
-            <div class="ad-Control"><label class="ad-Control-label">y</label><input class="ad-Text" type="text"
-                value="-1"></div>
-            <div class="ad-Control"><label class="ad-Control-label">Yaw</label><input class="ad-Text" type="text"
-                value="-0"></div>
-          </div>
-          <h3 class="ad-Controls-title">Control</h3>
-          <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="POST_AGV_GETAWAY_API('ITRI_3-1', '-13')"><i class="far fa-caret-square-up fa-2x" style="color: #845ef7;"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="POST_AGV_GETAWAY_API('ITRI_3-1', '-10')"><i class="fas fa-arrow-up fa-2x" style="color: #51cf66;"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="POST_AGV_GETAWAY_API('ITRI_3-1', '-14')"><i class="far fa-caret-square-down fa-2x" style="color: #845ef7;"></i></button></div>
-          </div>
-          <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="POST_AGV_GETAWAY_API('ITRI_3-1', '-11')"><i class="fas fa-undo-alt fa-2x" style="color: #51cf66;"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="POST_AGV_GETAWAY_API('ITRI_3-1', '-1')"><i class="fas fa-exclamation-circle fa-2x"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="POST_AGV_GETAWAY_API('ITRI_3-1', '-12')"><i class="fas fa-redo-alt fa-2x" style="color: #51cf66;"></i></button></div>
-          </div>
-          <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: #845ef7;"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-arrow-down fa-2x" style="color: #51cf66;"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: #845ef7;"></i></button></div>
+  <div class="main">
+    <div id="app" class="container ad-App">
+      <div class="ad-Container">
+        <div class="ad-Container-main">
+          <div class="ad-Container-svg">
+            <table id="map" class="ad-Container-table">
+              <tbody>
+                <tr>
+                  <td id="000000" class="square unWalk">
+                    <i id="ITRI_3-3" class="dynamic-i fas icon-AGV-Car AGV AGV-main" aria-hidden="true"></i>
+                  </td>
+                  <td id="000010" class="square unWalk"></td>
+                  <td id="000020" class="square Walk"></td>
+                  <td id="000030" class="square Walk"></td>
+                  <td id="000040" class="square unWalk"></td>
+                  <td id="000050" class="square unWalk"></td>
+                  <td id="000060" class="square unWalk"></td>
+                </tr>
+                <tr>
+                  <td id="010000" class="square unWalk"></td>
+                  <td id="010010" class="square unWalk"></td>
+                  <td id="010020" class="square Walk"></td>
+                  <td id="010030" class="square Walk"></td>
+                  <td id="010040" class="square Walk"></td>
+                  <td id="010050" class="square unWalk"></td>
+                  <td id="010060" class="square unWalk"></td>
+                </tr>
+                <tr>
+                  <td id="020000" class="square unWalk"></td>
+                  <td id="020010" class="square unWalk"></td>
+                  <td id="020020" class="square Walk"></td>
+                  <td id="020030" class="square Walk"></td>
+                  <td id="020040" class="square Walk"></td>
+                  <td id="020050" class="square unWalk"></td>
+                  <td id="020060" class="square unWalk"></td>
+                </tr>
+                <tr>
+                  <td id="030000" class="square unWalk"></td>
+                  <td id="030010" class="square unWalk"></td>
+                  <td id="030020" class="square Walk"></td>
+                  <td id="030030" class="square Walk"></td>
+                  <td id="030040" class="square Walk"></td>
+                  <td id="030050" class="square Walk"></td>
+                  <td id="030060" class="square unWalk"></td>
+                </tr>
+                <tr>
+                  <td id="040000" class="square unWalk"></td>
+                  <td id="040010" class="square Walk"></td>
+                  <td id="040020" class="square Walk"></td>
+                  <td id="040030" class="square Walk"></td>
+                  <td id="040040" class="square Walk"></td>
+                  <td id="040050" class="square Walk"></td>
+                  <td id="040060" class="square unWalk"></td>
+                </tr>
+                <tr>
+                  <td id="050000" class="square unWalk"></td>
+                  <td id="050010" class="square Walk"></td>
+                  <td id="050020" class="square Walk"></td>
+                  <td id="050030" class="square Walk"></td>
+                  <td id="050040" class="square Walk"></td>
+                  <td id="050050" class="square Walk"></td>
+                  <td id="050060" class="square unWalk"></td>
+                </tr>
+                <tr>
+                  <td id="060000" class="square unWalk"></td>
+                  <td id="060010" class="square Walk"></td>
+                  <td id="060020" class="square Walk"></td>
+                  <td id="060030" class="square Walk"></td>
+                  <td id="060040" class="square Walk"></td>
+                  <td id="060050" class="square Walk"><i id="power"
+                      class="dynamic-i fas fa-charging-station" aria-hidden="true"></i></td>
+                  <td id="060060" class="square unWalk"><i id="powerUnwalk" class="dynamic-i fas fa-plug tf90"
+                      aria-hidden="true"></i></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
+        <div class="ad-Container-controls">
+          <div class="ad-Controls">
+            <h3 class="ad-Controls-title">AGV</h3>
+            <div class="ad-Controls-container">
+              <div class="ad-Control"><label class="ad-Control-label">Service</label>
+                <div class="ad-Choices">
+                  <label class="ad-Choice">
+                    <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-1">
+                    <div class="ad-Choice-fake">ITRI_3-1</div>
+                  </label>
+                  <label class="ad-Choice">
+                    <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-2">
+                    <div class="ad-Choice-fake">ITRI_3-2</div>
+                  </label>
+                  <label class="ad-Choice">
+                    <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-3">
+                    <div class="ad-Choice-fake">ITRI_3-3</div>
+                  </label>
+                  <label class="ad-Choice">
+                    <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-4">
+                    <div class="ad-Choice-fake">ITRI_3-4</div>
+                  </label></div>
+              </div>
+            </div>
+            <h3 class="ad-Controls-title">Status</h3>
+            <div class="ad-Controls-container">
+              <div class="ad-Control">
+                <label class="ad-Control-label">Battery</label>
+                <input id="AGV_Battery" class="ad-Text" type="text" value="-Disconnect">
+              </div>
+              <div class="ad-Control">
+                <label class="ad-Control-label">IsProgress</label>
+                <input id="AGV_IsProgress" class="ad-Text" type="text" value="-false">
+              </div>
+              <div class="ad-Control">
+                <label class="ad-Control-label">Status</label>
+                <input id="AGV_Status" class="ad-Text" type="text" value="-1">
+              </div>
+            </div>
+            <div class="ad-Controls-container">
+              <div class="ad-Control"><label class="ad-Control-label">X</label><input id="AGV_X" class="ad-Text"
+                  type="text" value="-1"></div>
+              <div class="ad-Control"><label class="ad-Control-label">y</label><input id="AGV_Y" class="ad-Text"
+                  type="text" value="-1"></div>
+              <div class="ad-Control"><label class="ad-Control-label">Yaw</label><input id="AGV_Yaw" class="ad-Text"
+                  type="text" value="-0"></div>
+            </div>
+            <h3 class="ad-Controls-title">Shelf</h3>
+            <div class="ad-Controls-container">
+              <div class="ad-Control"><label class="ad-Control-label">X</label><input class="ad-Text" type="text"
+                  value="-1"></div>
+              <div class="ad-Control"><label class="ad-Control-label">y</label><input class="ad-Text" type="text"
+                  value="-1"></div>
+              <div class="ad-Control"><label class="ad-Control-label">Yaw</label><input class="ad-Text" type="text"
+                  value="-0"></div>
+            </div>
+            <h3 class="ad-Controls-title">Control</h3>
+            <div class="ad-Controls-container">
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-13')"><i class="far fa-caret-square-up fa-2x" style="color: #845ef7;"></i></button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-10')"><i class="fas fa-arrow-up fa-2x" style="color: #51cf66;"></i></button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-14')"><i class="far fa-caret-square-down fa-2x" style="color: #845ef7;"></i></button></div>
+            </div>
+            <div class="ad-Controls-container">
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-11')"><i class="fas fa-undo-alt fa-2x" style="color: #51cf66;"></i></button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="AGV_GETAWAY('-1')"><i class="fas fa-exclamation-circle fa-2x"></i></button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-12')"><i class="fas fa-redo-alt fa-2x" style="color: #51cf66;"></i></button></div>
+            </div>
+            <div class="ad-Controls-container">
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: #845ef7;"></i></button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-15')"><i class="fas fa-arrow-down fa-2x" style="color: #51cf66;"></i></button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: #845ef7;"></i></button></div>
+            </div>
+            <h3 class="ad-Controls-title">Control - 2</h3>
+            <div class="ad-Controls-container">
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-16')">充電</button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-17')">離開充電</button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: #845ef7;"></i></button></div>
+            </div>
+            <div class="ad-Controls-container">
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: #845ef7;"></i></button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-15')"><i class="fas fa-arrow-down fa-2x" style="color: #51cf66;"></i></button></div>
+              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: #845ef7;"></i></button></div>
+            </div>  
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="log">
+      
     </div>
   </div>
 </body>
@@ -207,8 +234,207 @@
 <!--JQuery-->
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
 <!--eazypath JS-->
-<script type="text/javascript" src="./js/node_modules/easystarjs/bin/easystar-0.4.4.min.js"></script>
+<!-- <script type="text/javascript" src="./js/node_modules/easystarjs/bin/easystar-0.4.4.min.js"></script> -->
 <!--AGV View JS-->
-<script type="text/javascript" src="AGV_Control_test.js"></script>
+<!-- <script type="text/javascript" src="AGV_Control_test.js"></script> -->
 
+<script>
+var requestDATAURL = "http://127.0.0.1/AGV/AGV-API/src/API/ajax_AGVStatus.php";
+var requestGETAWAYURL = "http://127.0.0.1/AGV/AGV-API/src/API/ajax_AGVGetaway.php";
+
+var AGV_Name = "ITRI_3-3";
+
+// var Services = [
+//     { Name: "ITRI_3-1", isLoading: true},
+//     { Name: "ITRI_3-2", isLoading: false},
+//     { Name: "ITRI_3-3", isLoading: true},
+//     { Name: "ITRI_3-4", isLoading: false},
+// ];
+
+var Services = [
+    { Name: "ITRI_3-3", isLoading: true},
+];
+
+var AGV = [];
+
+var yPosition = [18, 94, 172, 249, 327, 406, 484];
+var xPosition = [12, 89, 167, 245, 325, 402, 480];
+
+function ajax_request(request, datajson){
+  var requestURL = "http://127.0.0.1/AGV/AGV-API/src/API/ajax_" + request + ".php";
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('POST', requestURL, true);
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xmlhttp.send(JSON.stringify(datajson));
+  console.log(xmlhttp['response']);
+  return xmlhttp;
+}
+// function AGVStatus(name, cmd){
+//     var dataJSON = {};
+//     dataJSON["Name"] = name;
+//     dataJSON["Cmd"] = cmd;
+//     console.log(JSON.stringify(dataJSON));
+//     var request = "AGVStatus";
+//     var requestURL = "http://127.0.0.1/AGV/AGV-API/src/API/ajax_" + request + ".php";
+//     var response = '{}';
+//     var xmlhttp = new XMLHttpRequest();
+//     xmlhttp.addEventListener("load", completeHeader(response), false);
+//     xmlhttp.open('POST', requestURL, true);
+//     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+//     xmlhttp.send(JSON.stringify(dataJSON));
+//     return response;
+// }
+
+// function completeHeader(response){
+//   console.log(this);
+//   console.log(this.responseText);
+//   response = this.responseText;
+// }
+
+// function AGVGetaway(name, cmd){
+//     var dataJSON = {};
+//     dataJSON["Name"] = name;
+//     dataJSON["Cmd"] = cmd;
+//     var request = "AGVGetaway";
+//     var requestURL = "http://127.0.0.1/AGV/AGV-API/src/API/ajax_" + request + ".php";
+//     var xmlhttp = new XMLHttpRequest();
+//     xmlhttp.open('POST', requestURL, true);
+//     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+//     xmlhttp.send(JSON.stringify(dataJSON));
+//     return xmlhttp;
+// }
+
+function AGVStatus(name, cmd){
+    var dataJSON = {};
+    dataJSON["Name"] = name;
+    dataJSON["Cmd"] = cmd;
+    var request;
+    $.ajax({
+        url: requestDATAURL,
+        data: JSON.stringify(dataJSON),
+        type: "POST",
+        dataType: "json",
+        async : false,
+        contentType: "application/json;charset=utf-8",
+        success: function(returnData){
+            //console.log(returnData);
+            request = returnData;
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+            // console.log("erorr");
+            console.log(xhr.status);
+            console.log(thrownError);
+        },
+        timeout: 3000
+    });
+    return request;
+}
+
+function AGVGetaway(name, cmd){
+    console.log(name + " : " + cmd);
+    var dataJSON = {};
+    dataJSON["Name"] = name;
+    dataJSON["Cmd"] = cmd;
+    var request;
+    $.ajax({
+        url: requestGETAWAYURL,
+        data: JSON.stringify(dataJSON),
+        type: "POST",
+        dataType: "json",
+        async : false,
+        contentType: "application/json;charset=utf-8",
+        success: function(returnData){
+            //console.log(returnData);
+            request = returnData;
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+            console.log("erorr");
+             console.log(xhr);
+             console.log(thrownError);
+        },
+        timeout: 3000
+    });
+    return request;
+}
+
+function absYaw(yaw){
+    while(yaw<0)yaw+=360;
+    yaw = yaw%361;
+    yaw = Math.round(yaw/90)*90;
+    return yaw;
+}
+
+function absYawName(yaw){
+    while(yaw<0)yaw+=360;
+    yaw = yaw%361;
+    yaw = Math.round(yaw/90)*90;
+    var name = "";
+    switch(yaw){
+        case 0:
+            name="前";
+            break;
+        case 90:
+            name="右";
+            break;
+        case 180:
+            name="後";
+            break;
+        case 270:
+            name="左";
+            break;
+    }
+    return yaw+":"+name;
+}
+
+function moveAGV(AGVName, position, yaw){
+    $("#"+AGVName).css({
+        top: xPosition[parseInt(position[1])]+"px", 
+        left: yPosition[parseInt(position[4])]+"px",
+        transform: `rotate(${absYaw(parseInt(yaw))}deg)`,
+    });
+}
+
+function updateControls(id, data){
+    console.log(id + ": " + data);
+    $('#AGV_Status').val(data['StatusCode']);
+    $('#AGV_Battery').val(data['Config']["Battery"]);
+    $('#AGV_IsProgress').val(data['Config']["AgvLogIndex"]['IsProgress']);
+    $('#AGV_X').val(data['Config']["Attitude"]['Code'][4]);
+    $('#AGV_Y').val(data['Config']["Attitude"]['Code'][1]);
+    $('#AGV_Yaw').val(absYawName(parseInt(data['Config']["Attitude"]['Yaw'])));
+}
+
+function loadingStatus(services){
+    Services.map((_Sv, i) => {
+        if(_Sv.isLoading){
+            var API_data = AGVStatus(_Sv.Name, 1);
+            if(API_data['code'] == 0){
+                var statusCode = API_data['data']['StatusCode'];
+                var config = API_data['data']['Config'];
+                updateControls(_Sv.Name, API_data['data']);
+                //console.log(data);
+                if(statusCode == 0){
+                    moveAGV(_Sv.Name, config['Attitude']["Code"], config['Attitude']["Yaw"]);
+                }
+            }else{
+                
+            }
+        }
+    });
+}
+
+function AGV_STATUS(cmd){
+    var response = AGVStatus(AGV_Name, cmd);
+    console.log(response);
+}
+
+function AGV_GETAWAY(cmd){
+    //console.log(cmd);
+    var response = AGVGetaway(AGV_Name, cmd);
+    console.log(response);
+}
+
+setInterval("loadingStatus('Services')", 500);
+
+</script>
 </html>
