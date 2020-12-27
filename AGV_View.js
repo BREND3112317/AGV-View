@@ -7,7 +7,7 @@ const Component = React.Component
  * @param {JSON} datajson 
  */
 function ajax_request(request, datajson){
-    var requestURL = "http://127.0.0.1/AGV-API/src/API/ajax_" + request + ".php";
+    var requestURL = "http://127.0.0.1/LBRY/API/" + request + ".php";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST', requestURL, true);
     xmlhttp.setRequestHeAGV-Viewer("Content-Type", "application/json;charset=UTF-8");

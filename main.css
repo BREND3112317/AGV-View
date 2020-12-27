@@ -6,6 +6,8 @@
     --AGV-View-Color-sec: #00E676;
     --ad-Color-del: #8e55de;
     --AGV-View-Color-del: #8e55de;
+    --ad-Color-not: #da1e1e;
+    --AGV-View-Color-not: #da1e1e;
 
     --gray: #dadada;
     --bg-color: #e5e5e5;
@@ -36,7 +38,7 @@ html {
 
 html,
 body {
-    background-color: white;
+    background-color: aliceblue;
     height: 100%;
     overflow-x: hidden;
     /* padding: 0;
@@ -52,14 +54,4 @@ body {
     grid-template-rows: 80px 1fr 40px;
     grid-template-columns: 300px 1fr;
     grid-template-areas: "header header" "nav    main" "footer footer";
-}
-.AGV-View-App {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.AGV-View-App2 {   
 }

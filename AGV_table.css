@@ -96,12 +96,11 @@ ol, ul {
 .dynamic-i {
     top: 0px;
     left: 0px;
-    
 }
 
 .AGV {
-    opacity: 0.8;
     position: absolute;
+    opacity: 0.8;
     z-index: 09;
     top: 0px;
     left: 0px;
@@ -121,4 +120,16 @@ ol, ul {
 
 .icon-disable {
     display: none;
+}
+
+.Shelf {
+    position: absolute;
+    opacity: 0.8;
+    z-index: 09;
+    top: 0px;
+    left: 0px;
+    font-size: 54px;
+    color: var(--gray);
+    transition: transform 1000ms cubic-bezier(0.57, 0.31, 0.21, 0.92);
+    transition-property: top, left, transform;
 }

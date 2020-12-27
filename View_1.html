@@ -65,7 +65,7 @@
               <tbody>
                 <tr>
                   <td id="000000" class="square unWalk">
-                    <i id="ITRI_3-3" class="dynamic-i fas icon-AGV-Car AGV AGV-main" aria-hidden="true"></i>
+                    <!-- <i id="ITRI_3-3" class="dynamic-i fas icon-AGV-Car AGV AGV-main" aria-hidden="true"></i> -->
                   </td>
                   <td id="000010" class="square unWalk"></td>
                   <td id="000020" class="square Walk"></td>
@@ -126,9 +126,11 @@
                   <td id="060030" class="square Walk"></td>
                   <td id="060040" class="square Walk"></td>
                   <td id="060050" class="square Walk"><i id="power"
-                      class="dynamic-i fas fa-charging-station" aria-hidden="true"></i></td>
-                  <td id="060060" class="square unWalk"><i id="powerUnwalk" class="dynamic-i fas fa-plug tf90"
-                      aria-hidden="true"></i></td>
+                    class="dynamic-i fas fa-charging-station" aria-hidden="true" style="font-size: 34px;"></i>
+                  </td>
+                  <td id="060060" class="square unWalk">
+                    <i id="powerUnwalk" class="dynamic-i fas fa-plug tf90" aria-hidden="true" style="font-size: 34px;"></i>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -142,19 +144,19 @@
                 <div class="ad-Choices">
                   <label class="ad-Choice">
                     <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-1">
-                    <div class="ad-Choice-fake">ITRI_3-1</div>
+                    <div class="ad-Choice-fake">3-1</div>
                   </label>
                   <label class="ad-Choice">
                     <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-2">
-                    <div class="ad-Choice-fake">ITRI_3-2</div>
+                    <div class="ad-Choice-fake">3-2</div>
                   </label>
                   <label class="ad-Choice">
                     <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-3">
-                    <div class="ad-Choice-fake">ITRI_3-3</div>
+                    <div class="ad-Choice-fake">3-3</div>
                   </label>
                   <label class="ad-Choice">
                     <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-4">
-                    <div class="ad-Choice-fake">ITRI_3-4</div>
+                    <div class="ad-Choice-fake">3-4</div>
                   </label></div>
               </div>
             </div>
@@ -220,6 +222,9 @@
           </div>
         </div>
       </div>
+      <div class="ad-Container">
+
+      </div>
     </div>
     <div class="log">
       
@@ -248,17 +253,18 @@ var AGV_Name = "ITRI_3-3";
 //     { Name: "ITRI_3-1", isLoading: true},
 //     { Name: "ITRI_3-2", isLoading: false},
 //     { Name: "ITRI_3-3", isLoading: true},
-//     { Name: "ITRI_3-4", isLoading: false},
+//     
 // ];
 
 var Services = [
-    { Name: "ITRI_3-3", isLoading: true},
+    { Name: "ITRI_3-1", Type: "AGV", isLoading: false},
+    { Name: "ITRI_3-2", Type: "AGV", isLoading: false},
+    { Name: "ITRI_3-3", Type: "AGV", isLoading: true},
+    { Name: "ITRI_3-4", Type: "AGV", isLoading: false},
+    { Name: "Shelf-1", Type: "Shelf", isLoading: true, Code: "040010"},
+    { Name: "Shelf-2", Type: "Shelf", isLoading: true, Code: "050010"},
+    { Name: "Shelf-3", Type: "Shelf", isLoading: true, Code: "060010"},
 ];
-
-var AGV = [];
-
-var yPosition = [18, 94, 172, 249, 327, 406, 484];
-var xPosition = [12, 89, 167, 245, 325, 402, 480];
 
 function ajax_request(request, datajson){
   var requestURL = "http://127.0.0.1/AGV/AGV-API/src/API/ajax_" + request + ".php";
@@ -322,7 +328,7 @@ function AGVStatus(name, cmd){
         },
         error: function(xhr, ajaxOptions, thrownError){
             // console.log("erorr");
-            console.log(xhr.status);
+            console.log(xhr);
             console.log(thrownError);
         },
         timeout: 3000
@@ -386,7 +392,10 @@ function absYawName(yaw){
     return yaw+":"+name;
 }
 
-function moveAGV(AGVName, position, yaw){
+var yPosition = [18, 94, 172, 249, 327, 406, 484];
+var xPosition = [12, 89, 167, 245, 325, 402, 480];
+
+function move(AGVName, position, yaw){
     $("#"+AGVName).css({
         top: xPosition[parseInt(position[1])]+"px", 
         left: yPosition[parseInt(position[4])]+"px",
@@ -396,31 +405,31 @@ function moveAGV(AGVName, position, yaw){
 
 function updateControls(id, data){
     console.log(id + ": " + data);
-    $('#AGV_Status').val(data['StatusCode']);
-    $('#AGV_Battery').val(data['Config']["Battery"]);
-    $('#AGV_IsProgress').val(data['Config']["AgvLogIndex"]['IsProgress']);
-    $('#AGV_X').val(data['Config']["Attitude"]['Code'][4]);
-    $('#AGV_Y').val(data['Config']["Attitude"]['Code'][1]);
-    $('#AGV_Yaw').val(absYawName(parseInt(data['Config']["Attitude"]['Yaw'])));
+    $('#AGV_Status')      .val(data['StatusCode']);
+    $('#AGV_Battery')     .val(data['Config']["Battery"]);
+    $('#AGV_IsProgress')  .val(data['Config']["AgvLogIndex"]['IsProgress']);
+    $('#AGV_X')           .val(data['Config']["Attitude"]['Code'][4]);
+    $('#AGV_Y')           .val(data['Config']["Attitude"]['Code'][1]);
+    $('#AGV_Yaw')         .val(absYawName(parseInt(data['Config']["Attitude"]['Yaw'])));
 }
 
-function loadingStatus(services){
-    Services.map((_Sv, i) => {
-        if(_Sv.isLoading){
-            var API_data = AGVStatus(_Sv.Name, 1);
-            if(API_data['code'] == 0){
-                var statusCode = API_data['data']['StatusCode'];
-                var config = API_data['data']['Config'];
-                updateControls(_Sv.Name, API_data['data']);
-                //console.log(data);
-                if(statusCode == 0){
-                    moveAGV(_Sv.Name, config['Attitude']["Code"], config['Attitude']["Yaw"]);
-                }
-            }else{
-                
-            }
-        }
-    });
+function loadingStatus(){
+  Services.map((_Sv, i) => {
+      if(_Sv.isLoading && _Sv.Type == "AGV"){
+          var API_data = AGVStatus(_Sv.Name, 1);
+          if(API_data['code'] == 0){
+              var statusCode = API_data['data']['StatusCode'];
+              var config = API_data['data']['Config'];
+              updateControls(_Sv.Name, API_data['data']);
+              //console.log(data);
+              if(statusCode == 0){
+                move(_Sv.Name, config['Attitude']["Code"], config['Attitude']["Yaw"]);
+              }
+          }else{
+              
+          }
+      }
+  });
 }
 
 function AGV_STATUS(cmd){
@@ -429,12 +438,40 @@ function AGV_STATUS(cmd){
 }
 
 function AGV_GETAWAY(cmd){
-    //console.log(cmd);
     var response = AGVGetaway(AGV_Name, cmd);
     console.log(response);
 }
 
-setInterval("loadingStatus('Services')", 500);
+readyObject = function(){
+  Services.map((_Sv, i) => {
+    var DOM = $(`<i id="${_Sv.Name}" class="dynamic-i fas" aria-hidden="true"></i>`);
+    if(_Sv.isLoading == false){
+      $(DOM).css('display', 'none');
+      // $(DOM).css('display', ''); //取消方法
+    }
+    if(_Sv.Type == "AGV"){
+      $(DOM).addClass("icon-AGV-Car");
+      $(DOM).addClass("AGV");
+      if(_Sv.Name == AGV_Name){
+        $(DOM).addClass("AGV-main");
+      }
+      $("#000000").append(DOM);
+    }else if(_Sv.Type == "Shelf"){
+      $(DOM).addClass("icon-AGV-Shelf");
+      $(DOM).addClass("Shelf");
+      $("#000000").append(DOM);
+      move(_Sv.Name, _Sv.Code, 0);
+    }
+  });
+}
+
+$(function () {
+  readyObject();
+  loadingStatus();
+  // setInterval("loadingStatus()", 500);
+});
+
+
 
 </script>
 </html>
