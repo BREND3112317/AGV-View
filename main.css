@@ -11,6 +11,11 @@
 
     --gray: #dadada;
     --bg-color: #e5e5e5;
+    --yellow-l: rgb(240, 227, 51);
+    --yellow-d: rgb(255, 199, 15);
+
+    --green-l: #51cf66;
+    --green-d: #0eb82a;
 
     --bcn-purple: #8e55de;
     --bcn-purple-light: #b784ff;

@@ -45,8 +45,8 @@
     }
         .ad-Container-svg {
             position: relative;
-            width: 560px;
-            height: 560px;
+            width: 546px;
+            height: 546px;
             left: 0px;
             right: 0px;
             margin: auto;
@@ -62,8 +62,7 @@
             -ms-flex-direction: column;
                 flex-direction: column;
         height: 100%;
-        width: 320px;
-        width: 20rem;
+        width: 24rem;
         background: #111;
     }
     .ad-Container-controls ::-webkit-scrollbar {
@@ -76,7 +75,7 @@
 
 .ad-Foot {
     padding: 24px 32px;
-    padding: 1.5rem 2rem;
+    padding: 2.5rem 3rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -178,8 +177,7 @@
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    padding: 32px;
-    padding: 2rem;
+    padding: 1.6rem;
 }
     .ad-Controls :first-child {
         margin-top: 0;
@@ -188,7 +186,7 @@
         margin: 48px 0 24px;
         margin: 3rem 0 1.5rem;
         font-size: 12.8px;
-        font-size: .8rem;
+        font-size: 1.2rem;
         font-weight: bold;
         color: #fff;
     }
@@ -286,8 +284,8 @@
 
 .ad-Text {
     height: 22px;
-    width: 32px;
-    width: 3rem;
+    width: 40px;
+    width: 4rem;
     background: rgb(43, 43, 43);
     border: none;
     border-radius: 4px;

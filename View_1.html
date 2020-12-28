@@ -61,8 +61,8 @@
       <div class="ad-Container">
         <div class="ad-Container-main">
           <div class="ad-Container-svg">
-            <table id="map" class="ad-Container-table">
-              <tbody>
+            <table class="ad-Container-table">
+              <tbody id="map" class="class class-2108 static static-map">
                 <tr>
                   <td id="000000" class="square unWalk">
                     <!-- <i id="ITRI_3-3" class="dynamic-i fas icon-AGV-Car AGV AGV-main" aria-hidden="true"></i> -->
@@ -126,10 +126,10 @@
                   <td id="060030" class="square Walk"></td>
                   <td id="060040" class="square Walk"></td>
                   <td id="060050" class="square Walk"><i id="power"
-                    class="dynamic-i fas fa-charging-station" aria-hidden="true" style="font-size: 34px;"></i>
+                    class="static static-i fas fa-charging-station fa-lg" aria-hidden="true"></i>
                   </td>
                   <td id="060060" class="square unWalk">
-                    <i id="powerUnwalk" class="dynamic-i fas fa-plug tf90" aria-hidden="true" style="font-size: 34px;"></i>
+                    <i id="powerUnwalk" class="static static-i fas fa-plug tf90 fa-lg" aria-hidden="true"></i>
                   </td>
                 </tr>
               </tbody>
@@ -143,36 +143,52 @@
               <div class="ad-Control"><label class="ad-Control-label">Service</label>
                 <div class="ad-Choices">
                   <label class="ad-Choice">
-                    <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-1">
+                    <input id="ITRI_3-1_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_1" onclick="AGVServiceSwitch(this)">
                     <div class="ad-Choice-fake">3-1</div>
                   </label>
                   <label class="ad-Choice">
-                    <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-2">
+                    <input id="ITRI_3-2_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_2" onclick="AGVServiceSwitch(this)">
                     <div class="ad-Choice-fake">3-2</div>
                   </label>
                   <label class="ad-Choice">
-                    <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-3">
+                    <input id="ITRI_3-3_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_3" onclick="AGVServiceSwitch(this)">
                     <div class="ad-Choice-fake">3-3</div>
                   </label>
                   <label class="ad-Choice">
-                    <input class="ad-Choice-input" type="radio" name="AGVName" value="ITRI_3-4">
+                    <input id="ITRI_3-4_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_4" onclick="AGVServiceSwitch(this)">
                     <div class="ad-Choice-fake">3-4</div>
                   </label></div>
               </div>
             </div>
+            <div class="ad-Controls-container">
+              <div class="ad-Control">
+                <label class="ad-Control-label">Loading</label>
+                <label class="ad-Checkbox">
+                  <input id="Loading_CheckBox" class="ad-Checkbox-input" type="checkbox" checked="" onchange="setAGVLoading(this)">
+                  <div class="ad-Checkbox-fake"></div>
+              </label>
+              <div class="ad-Control">
+                <label class="ad-Control-label">FOV LOCK</label>
+                <label class="ad-Checkbox">
+                  <input id="FOVLock_CheckBox" class="ad-Checkbox-input" type="checkbox" onchange="setFovLock()">
+                  <div class="ad-Checkbox-fake"></div>
+                </label>
+              </div>
+            </div>
+            </div>
             <h3 class="ad-Controls-title">Status</h3>
             <div class="ad-Controls-container">
               <div class="ad-Control">
-                <label class="ad-Control-label">Battery</label>
-                <input id="AGV_Battery" class="ad-Text" type="text" value="-Disconnect">
-              </div>
-              <div class="ad-Control">
-                <label class="ad-Control-label">IsProgress</label>
-                <input id="AGV_IsProgress" class="ad-Text" type="text" value="-false">
-              </div>
-              <div class="ad-Control">
                 <label class="ad-Control-label">Status</label>
-                <input id="AGV_Status" class="ad-Text" type="text" value="-1">
+                <input id="AGV_Status" class="ad-Text" type="text" value="unset">
+              </div>
+              <div class="ad-Control">
+                <label class="ad-Control-label">State</label>
+                <input id="AGV_State" class="ad-Text" type="text" value="unset">
+              </div>
+              <div class="ad-Control">
+                <label class="ad-Control-label">IsLeftUp</label>
+                <input id="AGV_IsLeftUp" class="ad-Text" type="text" value="unset">
               </div>
             </div>
             <div class="ad-Controls-container">
@@ -183,6 +199,21 @@
               <div class="ad-Control"><label class="ad-Control-label">Yaw</label><input id="AGV_Yaw" class="ad-Text"
                   type="text" value="-0"></div>
             </div>
+            <div class="ad-Controls-container">
+              <div class="ad-Control">
+                <label class="ad-Control-label">Battery</label>
+                <input id="AGV_Battery" class="ad-Text" type="text" value="unset">
+              </div>
+              <div class="ad-Control">
+                <label class="ad-Control-label">Chargeing</label>
+                <input id="AGV_Chargeing" class="ad-Text" type="text" value="unset">
+              </div>
+              <div class="ad-Control">
+                <label class="ad-Control-label">IsReady</label>
+                <input id="AGV_IsReady" class="ad-Text" type="text" value="unset">
+              </div>
+            </div>
+            
             <h3 class="ad-Controls-title">Shelf</h3>
             <div class="ad-Controls-container">
               <div class="ad-Control"><label class="ad-Control-label">X</label><input class="ad-Text" type="text"
@@ -192,6 +223,11 @@
               <div class="ad-Control"><label class="ad-Control-label">Yaw</label><input class="ad-Text" type="text"
                   value="-0"></div>
             </div>
+            
+          </div>
+        </div>
+        <div class="ad-Container-controls">
+          <div class="ad-Controls">
             <h3 class="ad-Controls-title">Control</h3>
             <div class="ad-Controls-container">
               <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="AGV_GETAWAY('-13')"><i class="far fa-caret-square-up fa-2x" style="color: #845ef7;"></i></button></div>
@@ -222,12 +258,6 @@
           </div>
         </div>
       </div>
-      <div class="ad-Container">
-
-      </div>
-    </div>
-    <div class="log">
-      
     </div>
   </div>
 </body>
@@ -248,33 +278,31 @@ var requestDATAURL = "http://127.0.0.1/AGV/AGV-API/src/API/ajax_AGVStatus.php";
 var requestGETAWAYURL = "http://127.0.0.1/AGV/AGV-API/src/API/ajax_AGVGetaway.php";
 
 var AGV_Name = "ITRI_3-3";
+var mainAGV = "AGV_3";
+var AGV_Data = {};
 
-// var Services = [
-//     { Name: "ITRI_3-1", isLoading: true},
-//     { Name: "ITRI_3-2", isLoading: false},
-//     { Name: "ITRI_3-3", isLoading: true},
-//     
-// ];
+var PreviewPath = [];
+var mapPath = new Array;
 
-var Services = [
-    { Name: "ITRI_3-1", Type: "AGV", isLoading: false},
-    { Name: "ITRI_3-2", Type: "AGV", isLoading: false},
-    { Name: "ITRI_3-3", Type: "AGV", isLoading: true},
-    { Name: "ITRI_3-4", Type: "AGV", isLoading: false},
-    { Name: "Shelf-1", Type: "Shelf", isLoading: true, Code: "040010"},
-    { Name: "Shelf-2", Type: "Shelf", isLoading: true, Code: "050010"},
-    { Name: "Shelf-3", Type: "Shelf", isLoading: true, Code: "060010"},
-];
+var Services = {
+    "AGV_1":    { Name: "ITRI_3-1", Type: "AGV",    isLoading: false,   show: true},
+    "AGV_2":    { Name: "ITRI_3-2", Type: "AGV",    isLoading: false,   show: false},
+    "AGV_3":    { Name: "ITRI_3-3", Type: "AGV",    isLoading: true,    show: true},
+    "AGV_4":    { Name: "ITRI_3-4", Type: "AGV",    isLoading: false,   show: false},
+    "Shelf_1":  { Name: "Shelf-1",  Type: "Shelf",  show: true,         Code: "040010"},
+    "Shelf_2":  { Name: "Shelf-2",  Type: "Shelf",  show: true,         Code: "050010"},
+    "Shelf_3":  { Name: "Shelf-3",  Type: "Shelf",  show: true,         Code: "060010"},
+};
 
-function ajax_request(request, datajson){
-  var requestURL = "http://127.0.0.1/AGV/AGV-API/src/API/ajax_" + request + ".php";
+ajax_request = function(datajson, callback){
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('POST', requestURL, true);
+  xmlhttp.open('POST', requestDATAURL, true);
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xmlhttp.send(JSON.stringify(datajson));
-  console.log(xmlhttp['response']);
+  callback(xmlhttp['response']);
   return xmlhttp;
 }
+
 // function AGVStatus(name, cmd){
 //     var dataJSON = {};
 //     dataJSON["Name"] = name;
@@ -363,47 +391,46 @@ function AGVGetaway(name, cmd){
     return request;
 }
 
-function absYaw(yaw){
-    while(yaw<0)yaw+=360;
-    yaw = yaw%361;
-    yaw = Math.round(yaw/90)*90;
-    return yaw;
-}
+var yPosition = [0, 78, 156, 233, 311, 390, 468];
+var xPosition = [0, 78, 156, 234, 314, 391, 469];
 
-function absYawName(yaw){
-    while(yaw<0)yaw+=360;
-    yaw = yaw%361;
-    yaw = Math.round(yaw/90)*90;
-    var name = "";
-    switch(yaw){
-        case 0:
-            name="前";
-            break;
-        case 90:
-            name="右";
-            break;
-        case 180:
-            name="後";
-            break;
-        case 270:
-            name="左";
-            break;
-    }
-    return yaw+":"+name;
-}
-
-var yPosition = [18, 94, 172, 249, 327, 406, 484];
-var xPosition = [12, 89, 167, 245, 325, 402, 480];
-
-function move(AGVName, position, yaw){
-    $("#"+AGVName).css({
-        top: xPosition[parseInt(position[1])]+"px", 
-        left: yPosition[parseInt(position[4])]+"px",
+move = function(Name, position, yaw){
+    $("#"+Name).css({
+        top: yPosition[parseInt(position[1])]+"px", 
+        left: xPosition[parseInt(position[4])]+"px",
         transform: `rotate(${absYaw(parseInt(yaw))}deg)`,
     });
 }
+absYaw = function(yaw){
+      while(yaw<0)yaw+=360;
+      yaw = yaw%361;
+      yaw = Math.round(yaw/90)*90;
+      return yaw;
+    }
 
-function updateControls(id, data){
+updateControls = function(id, data){
+    absYawName = function(yaw){
+        while(yaw<0)yaw+=360;
+        yaw = yaw%361;
+        yaw = Math.round(yaw/90)*90;
+        var name = "";
+        switch(yaw){
+            case 0:
+                name="前";
+                break;
+            case 90:
+                name="右";
+                break;
+            case 180:
+                name="後";
+                break;
+            case 270:
+                name="左";
+                break;
+        }
+        return yaw+":"+name;
+    }
+
     console.log(id + ": " + data);
     $('#AGV_Status')      .val(data['StatusCode']);
     $('#AGV_Battery')     .val(data['Config']["Battery"]);
@@ -413,61 +440,192 @@ function updateControls(id, data){
     $('#AGV_Yaw')         .val(absYawName(parseInt(data['Config']["Attitude"]['Yaw'])));
 }
 
-function loadingStatus(){
-  Services.map((_Sv, i) => {
-      if(_Sv.isLoading && _Sv.Type == "AGV"){
-          var API_data = AGVStatus(_Sv.Name, 1);
-          if(API_data['code'] == 0){
-              var statusCode = API_data['data']['StatusCode'];
-              var config = API_data['data']['Config'];
-              updateControls(_Sv.Name, API_data['data']);
-              //console.log(data);
-              if(statusCode == 0){
-                move(_Sv.Name, config['Attitude']["Code"], config['Attitude']["Yaw"]);
-              }
-          }else{
-              
-          }
+loadingStatus = function(){
+  for(var sv in Services){
+    if(Services[sv].isLoading && Services[sv].Type == "AGV"){
+      console.log(sv);
+      var API_data = AGVStatus(Services[sv].Name, 1);
+      if(sv == mainAGV){
+        AGV_Data = API_data;
       }
-  });
+      if(API_data['code'] == 0){
+          var statusCode = API_data['data']['StatusCode'];
+          var config = API_data['data']['Config'];
+          updateControls(Services[sv].Name, API_data['data']);
+          //console.log(data);
+          if(statusCode == 0){
+            move(Services[sv].Name, config['Attitude']["Code"], config['Attitude']["Yaw"]);
+          }
+      }else{
+          
+      }
+    }
+  }
 }
 
-function AGV_STATUS(cmd){
-    var response = AGVStatus(AGV_Name, cmd);
+MainAGV_STATUS = function(cmd){
+    var response = AGVStatus(Services[mainAGV].Name, cmd);
     console.log(response);
 }
 
-function AGV_GETAWAY(cmd){
-    var response = AGVGetaway(AGV_Name, cmd);
+MainAGV_GETAWAY = function(cmd){
+    var response = AGVGetaway(Services[mainAGV].Name, cmd);
     console.log(response);
 }
 
 readyObject = function(){
-  Services.map((_Sv, i) => {
-    var DOM = $(`<i id="${_Sv.Name}" class="dynamic-i fas" aria-hidden="true"></i>`);
-    if(_Sv.isLoading == false){
-      $(DOM).css('display', 'none');
+  var loading = false;
+
+
+  // 建立移動物件
+  for(var sv in Services){
+    var DOM_d = $(`<div id="${Services[sv].Name}" class="dynamic-i"></div>`);
+    var DOM_i = $(`<i class="fas" aria-hidden="true"></i>`);
+    if(Services[sv].show == false){
+      $(DOM_d).css('display', 'none');
       // $(DOM).css('display', ''); //取消方法
     }
-    if(_Sv.Type == "AGV"){
-      $(DOM).addClass("icon-AGV-Car");
-      $(DOM).addClass("AGV");
-      if(_Sv.Name == AGV_Name){
-        $(DOM).addClass("AGV-main");
+    if(Services[sv].Type == "AGV"){
+      $(DOM_i).addClass("icon-AGV-Car");
+      $(DOM_i).addClass("AGV");
+      if(sv == mainAGV){
+        loading = Services[sv].isLoading;
+        $(DOM_i).addClass("AGV-main");
       }
-      $("#000000").append(DOM);
-    }else if(_Sv.Type == "Shelf"){
-      $(DOM).addClass("icon-AGV-Shelf");
-      $(DOM).addClass("Shelf");
-      $("#000000").append(DOM);
-      move(_Sv.Name, _Sv.Code, 0);
+      DOM_d.append(DOM_i);
+      $("#map").append(DOM_d);
+    }else if(Services[sv].Type == "Shelf"){
+      $(DOM_i).addClass("icon-AGV-Shelf");
+      $(DOM_i).addClass("Shelf");
+      DOM_d.append(DOM_i);
+      $("#map").append(DOM_d);
+      move(Services[sv].Name, Services[sv].Code, 0);
     }
-  });
+  }
+
+  // 選擇AGV
+  $("#" + Services[mainAGV].Name + "_Radio").attr("checked",true);
+  $("#Loading_CheckBox").attr("checked",loading);
+}
+
+AGVServiceSwitch = function(e){
+  
+  $("#"+Services[mainAGV].Name).children().removeClass("AGV-main");
+  mainAGV = e.value;
+  console.log(Services[mainAGV]);
+  // $("#"+Services[mainAGV].Name).css('display', '');
+  $("#"+Services[mainAGV].Name).children().addClass("AGV-main");
+  console.log((Services[mainAGV].isLoading ? true : ''));
+  $('#Loading_CheckBox').prop('checked', Services[mainAGV].isLoading);
+  // $("#Loading_CheckBox").attr("checked", (Services[mainAGV].isLoading ? true : ''));
+}
+
+setAGVLoading = function(e){
+  Services[mainAGV].isLoading = $("#Loading_CheckBox").is(":checked");
+  console.log(Services[mainAGV].isLoading);
+}
+
+setFovLock = function(){
+  var yaw = 0;
+  if($("#FOVLock_CheckBox").is(":checked")){
+    yaw = AGV_Data['data']['Config']['Attitude']['Yaw'];
+  }
+  $(".static-map").css('transform', `rotate(${absYaw(parseInt(yaw))}deg)`);
+  $(".static-i").css('transform', `rotate(${-absYaw(parseInt(yaw))}deg)`);
+}
+
+showList = function(list){
+  // list.map((_p, i) => {
+  //   console.log(_p);
+  // });
+  alert(list);
+};
+
+clearSubPoint = function(){
+  for (var point in mapPath) {
+    // console.log("clear " + mapPath[point]);
+    if(mapPath[point] == "060050"){
+      $('#'+mapPath[point]).css('color', '');
+    }else{
+      $("#"+mapPath[point]).empty();
+    }
+  }
+  mapPath = [];
+}
+
+getPreviewList = function(){
+  var data = AGVStatus(Services[mainAGV].Name, 100);
+  PreviewPath = data.data;
+  var i=0;
+  for (var key in PreviewPath) {
+    console.log(key, PreviewPath[key]);
+    $('#'+key).mouseover(function() {
+      clearSubPoint();
+      //console.log(this.id + " in.");
+      var length = PreviewPath[this.id].length;
+      var index = length -1;
+      PreviewPath[this.id].map((_code, i) => {
+        mapPath.push(_code);
+        $('#'+_code).append(`<i class="far fa-dot-circle" style="color: rgb(81, 207, 102, ` + (index--)/length + `)"></i>`);
+      });
+      if(this.id == "060050"){
+        $('#'+this.id).css('color', 'rgb(81, 207, 102)');
+        $('#'+this.id).click(function(){
+          $('#'+this.id).css('color', '#0eb82a');
+        });
+      }else{
+        var DOM = `<i class="fas fa-bullseye fa-lg static-i" style="color: #51cf66;"></i>`;
+        $(DOM).click(function(){
+          $(DOM).css('color', '#0eb82a');
+        });
+        $('#'+this.id).append(DOM);
+      }
+      mapPath.push(this.id);
+      
+    });
+    // $('#'+key).mouseout(function (){
+    //   console.log(this.id + " out.");
+    //   PreviewPath[this.id].map((_code, i) => {
+    //     console.log(_code + " remove.");
+    //     $('#'+_code).empty();
+    //   });
+    //   if(this.id == "060050"){
+    //     $('#'+this.id).css('color', '');
+    //   }else{
+    //     $('#'+this.id).empty();
+    //   }
+    // });
+  }
+  if(typeof PreviewPath['060050'] !== 'undefined'){
+    console.log("test");
+    //    
+    $("#060060").mouseover(function() {
+      $("#060050").mouseover();
+      $('#'+this.id).css('color', 'rgb(240, 227, 51)');
+    });
+    $("#060060").click(function(){
+      $('#'+this.id).css('color', 'rgb(255, 199, 15)');
+    });
+    // $("#060060").unclick(function(){
+    //   $('#'+this.id).css('color', '#51cf66');
+    // });
+    $("#060060").mouseout(function (){
+      $("#060050").mouseout();
+
+      $('#'+this.id).css('color', '');
+    });
+  }
+  // ajax_request("AGVStatus", {'Name': Services[mainAGV].Name, "Cmd": 100}, showList);
 }
 
 $(function () {
+  $("#map").mouseout(function(){
+    clearSubPoint();
+  });
+
   readyObject();
   loadingStatus();
+  getPreviewList();
   // setInterval("loadingStatus()", 500);
 });
 
