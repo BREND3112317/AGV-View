@@ -15,8 +15,8 @@ ol, ul {
 }
 
 .square {
-    background: #ffffff;
-    border: 1px solid #f3f3f3;
+    background: var(--white);
+    border: 1px solid var(--gray);
     float: left;
     font-size: 24px;
     font-weight: bold;
@@ -34,7 +34,7 @@ ol, ul {
 }
 
 .kbd-navigation .square:focus {
-    background: #ffffff;
+    background: var(--white);
 }
 
 .game {
@@ -47,11 +47,11 @@ ol, ul {
 }
 
 .Walk {
-    background-color: #ffffff;
+    background-color: var(--white);
 }
 
 .unWalk {
-    background-color: var(--gray);
+    background-color: var(--gray-d);
 }
 
 .tf90 {
@@ -105,7 +105,7 @@ ol, ul {
     opacity: 1;
     line-height: 81px !important;
     font-size: 54px;
-    color: var(--gray);
+    color: var(--gray-d);
     position: relative;
 }
 
@@ -127,7 +127,7 @@ ol, ul {
     opacity: 1;
     line-height: 76px !important;
     font-size: 54px;
-    color: var(--gray);
+    color: var(--gray-d);
     position: relative;
     left: 1px;
     top: 2px;

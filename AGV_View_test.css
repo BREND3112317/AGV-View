@@ -62,7 +62,7 @@
             -ms-flex-direction: column;
                 flex-direction: column;
         height: 100%;
-        width: 24rem;
+        width: 18rem;
         background: #111;
     }
     .ad-Container-controls ::-webkit-scrollbar {
@@ -100,7 +100,7 @@
             .ad-Foot-highlight {
                 padding-bottom: 0.64px;
                 padding-bottom: .04rem;
-                border-bottom: 2px solid #00E676;
+                border-bottom: 2px solid var(--ad-Color-sec);
                 font-weight: bold;
             }
     
@@ -148,10 +148,10 @@
     }
     .ad-Point:hover,
     .ad-PointGroup.is-active .ad-Point {
-        fill: #00E676;
+        fill: var(--ad-Color-sec);
     }
     .ad-PointGroup--first .ad-Point {
-        stroke: #00E676;
+        stroke: var(--ad-Color-sec);
     }
     .ad-Anchor {
         opacity: .5;
@@ -183,8 +183,8 @@
         margin-top: 0;
     }
     .ad-Controls-title {
-        margin: 48px 0 24px;
-        margin: 3rem 0 1.5rem;
+        /* margin: 36px 0 24px; */
+        margin: 2rem 0 1.5rem;
         font-size: 12.8px;
         font-size: 1.2rem;
         font-weight: bold;
@@ -268,7 +268,7 @@
     background: rgb(0, 255, 132);
 }
 .ad-Button--delete {
-    background: #E53935;
+    background: var(--ad-Color-not);
 }
 .ad-Button--delete:focus,
 .ad-Button--delete:hover {
@@ -329,7 +329,7 @@
 .ad-Checkbox-input:checked + .ad-Checkbox-fake::after {
     left: auto;
     right: 0;
-    border-color: #00E676;
+    border-color: var(--ad-Color-sec);
 }
 
 .ad-Choices {
@@ -346,6 +346,10 @@
     }
         .ad-Choice-input {
             display: none;
+        }
+        .ad-Choice-input.disabled-radio {
+          pointer-events:none;
+          opacity:0.5;
         }
         .ad-Choice-fake {
             padding: 9.6px;
@@ -370,7 +374,7 @@
             border-radius: 0 4px 4px 0;
         }
         .ad-Choice-input:checked + .ad-Choice-fake {
-            border-color: #00E676;
+            border-color: var(--ad-Color-sec);
         }
 
 .ad-Range {
@@ -424,9 +428,9 @@
 
     .ad-Range-input:hover::-webkit-slider-thumb,
     .ad-Range-input:focus::-webkit-slider-thumb {
-        border-color: #00E676;
+        border-color: var(--ad-Color-sec);
     }
     .ad-Range-input:hover::-moz-range-thumb,
     .ad-Range-input:focus::-moz-range-thumb {
-        border-color: #00E676;
+        border-color: var(--ad-Color-sec);
     }

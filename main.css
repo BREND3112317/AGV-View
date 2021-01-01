@@ -6,23 +6,27 @@
     --AGV-View-Color-sec: #00E676;
     --ad-Color-del: #8e55de;
     --AGV-View-Color-del: #8e55de;
-    --ad-Color-not: #da1e1e;
-    --AGV-View-Color-not: #da1e1e;
+    --ad-Color-not: #E53935;
+    --AGV-View-Color-not: #E53935;
 
-    --gray: #dadada;
+    --gray: #f3f3f3;
+    --gray-d: #ebebeb;
     --bg-color: #e5e5e5;
-    --yellow-l: rgb(240, 227, 51);
+    --yellow-l: rgb(253, 206, 77);
     --yellow-d: rgb(255, 199, 15);
 
     --green-l: #51cf66;
     --green-d: #0eb82a;
+
+    --purple-l: #845ef7;
 
     --bcn-purple: #8e55de;
     --bcn-purple-light: #b784ff;
     --bcn-purple-dark: #7127d9;
 
     --black: #333;
-    --white: #f5f5f5;
+    --white: #ffffff;
+    --white-d: #f5f5f5;
 
     --text-color-black: #555;
     --text-color-white: #d5d5d5;
@@ -43,7 +47,7 @@ html {
 
 html,
 body {
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     height: 100%;
     overflow-x: hidden;
     /* padding: 0;
