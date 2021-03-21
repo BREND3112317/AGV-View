@@ -14,6 +14,10 @@ ol, ul {
     margin-bottom: 10px;
 }
 
+.map td {
+    
+}
+
 .square {
     background: var(--white);
     border: 1px solid var(--gray);

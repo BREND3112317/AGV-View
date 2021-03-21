@@ -27,14 +27,14 @@
   <link href="icons/icomoon/style.css" rel="stylesheet" />
   <title>AGV GUI test - 1</title>
   <style>
-    .main {
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      position: absolute;
-      height: fit-content;
-      left: 0;
-      right: 0;
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100%;
+      height: 100vh;
     }
 
     .container {
@@ -54,265 +54,192 @@
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <div class="main">
-    <div id="app" class="container ad-App">
-      <div class="ad-Container" style="width: 1500px;">
-        <div class="ad-Container-main" style="background-color: var(--gray);">
-          <div style="margin: auto; width: 36rem;">
-            <div class="ad-Container-svg">
-              <table class="ad-Container-table">
-                <tbody id="map" class="class class-2108 static static-map">
-                  <tr>
-                    <td id="000000" class="square unWalk">
-                      <!-- <i id="ITRI_3-3" class="dynamic-i fas icon-AGV-Car AGV AGV-main" aria-hidden="true"></i> -->
-                    </td>
-                    <td id="000010" class="square unWalk"></td>
-                    <td id="000020" class="square Walk"></td>
-                    <td id="000030" class="square Walk"></td>
-                    <td id="000040" class="square unWalk"></td>
-                    <td id="000050" class="square unWalk"></td>
-                    <td id="000060" class="square unWalk"></td>
-                  </tr>
-                  <tr>
-                    <td id="010000" class="square unWalk"></td>
-                    <td id="010010" class="square unWalk"></td>
-                    <td id="010020" class="square Walk"></td>
-                    <td id="010030" class="square Walk"></td>
-                    <td id="010040" class="square Walk"></td>
-                    <td id="010050" class="square unWalk"></td>
-                    <td id="010060" class="square unWalk"></td>
-                  </tr>
-                  <tr>
-                    <td id="020000" class="square unWalk"></td>
-                    <td id="020010" class="square unWalk"></td>
-                    <td id="020020" class="square Walk"></td>
-                    <td id="020030" class="square Walk"></td>
-                    <td id="020040" class="square Walk"></td>
-                    <td id="020050" class="square unWalk"></td>
-                    <td id="020060" class="square unWalk"></td>
-                  </tr>
-                  <tr>
-                    <td id="030000" class="square unWalk"></td>
-                    <td id="030010" class="square unWalk"></td>
-                    <td id="030020" class="square Walk"></td>
-                    <td id="030030" class="square Walk"></td>
-                    <td id="030040" class="square Walk"></td>
-                    <td id="030050" class="square Walk"></td>
-                    <td id="030060" class="square unWalk"></td>
-                  </tr>
-                  <tr>
-                    <td id="040000" class="square unWalk"></td>
-                    <td id="040010" class="square Walk"></td>
-                    <td id="040020" class="square Walk"></td>
-                    <td id="040030" class="square Walk"></td>
-                    <td id="040040" class="square Walk"></td>
-                    <td id="040050" class="square Walk"></td>
-                    <td id="040060" class="square unWalk"></td>
-                  </tr>
-                  <tr>
-                    <td id="050000" class="square unWalk"></td>
-                    <td id="050010" class="square Walk"></td>
-                    <td id="050020" class="square Walk"></td>
-                    <td id="050030" class="square Walk"></td>
-                    <td id="050040" class="square Walk"></td>
-                    <td id="050050" class="square Walk"></td>
-                    <td id="050060" class="square unWalk"></td>
-                  </tr>
-                  <tr>
-                    <td id="060000" class="square unWalk"></td>
-                    <td id="060010" class="square Walk"></td>
-                    <td id="060020" class="square Walk"></td>
-                    <td id="060030" class="square Walk"></td>
-                    <td id="060040" class="square Walk"></td>
-                    <td id="060050" class="square Walk"><i id="power"
-                      class="static static-i fas fa-charging-station fa-lg" aria-hidden="true"></i>
-                    </td>
-                    <td id="060060" class="square unWalk">
-                      <i id="powerUnwalk" class="static static-i fas fa-plug tf90 fa-lg" aria-hidden="true"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+  <div id="app" class="container ad-App">
+    <div class="ad-Container" style="width: 1500px;">
+      <div class="ad-Container-main" style="background-color: var(--gray);">
+        <div class="ad-Container-svg">
+          <table class="ad-Container-table">
+            <tbody id="map" class="class class-2108 static static-map">
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ad-Container-controls">
+        <div class="ad-Controls">
+          <h3 class="ad-Controls-title">AGV</h3>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><label class="ad-Control-label">Service</label>
+              <div class="ad-Choices">
+                <label class="ad-Choice">
+                  <input id="ITRI_3-1_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_1">
+                  <div class="ad-Choice-fake">3-1</div>
+                </label>
+                <label class="ad-Choice">
+                  <input id="ITRI_3-2_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_2">
+                  <div class="ad-Choice-fake">3-2</div>
+                </label>
+                <label class="ad-Choice">
+                  <input id="ITRI_3-3_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_3">
+                  <div class="ad-Choice-fake">3-3</div>
+                </label>
+                <label class="ad-Choice">
+                  <input id="ITRI_3-4_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_4">
+                  <div class="ad-Choice-fake">3-4</div>
+                </label></div>
             </div>
           </div>
-        </div>
-        <div class="ad-Container-controls">
-          <div class="ad-Controls">
-            <h3 class="ad-Controls-title">AGV</h3>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><label class="ad-Control-label">Service</label>
-                <div class="ad-Choices">
-                  <label class="ad-Choice">
-                    <input id="ITRI_3-1_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_1">
-                    <div class="ad-Choice-fake">3-1</div>
-                  </label>
-                  <label class="ad-Choice">
-                    <input id="ITRI_3-2_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_2">
-                    <div class="ad-Choice-fake">3-2</div>
-                  </label>
-                  <label class="ad-Choice">
-                    <input id="ITRI_3-3_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_3">
-                    <div class="ad-Choice-fake">3-3</div>
-                  </label>
-                  <label class="ad-Choice">
-                    <input id="ITRI_3-4_Radio" class="ad-Choice-input" type="radio" name="AGVName" value="AGV_4">
-                    <div class="ad-Choice-fake">3-4</div>
-                  </label></div>
-              </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control">
+              <label class="ad-Control-label">Loading</label>
+              <label class="ad-Checkbox">
+                <input id="Loading_CheckBox" class="ad-Checkbox-input" type="checkbox" checked="">
+                <div class="ad-Checkbox-fake"></div>
+            </label>
             </div>
-            <div class="ad-Controls-container">
-              <div class="ad-Control">
-                <label class="ad-Control-label">Loading</label>
-                <label class="ad-Checkbox">
-                  <input id="Loading_CheckBox" class="ad-Checkbox-input" type="checkbox" checked="">
-                  <div class="ad-Checkbox-fake"></div>
+            <div class="ad-Control">
+              <label class="ad-Control-label">FOV LOCK</label>
+              <label class="ad-Checkbox">
+                <input id="FOVLock_CheckBox" class="ad-Checkbox-input" type="checkbox">
+                <div class="ad-Checkbox-fake"></div>
               </label>
-              </div>
-              <div class="ad-Control">
-                <label class="ad-Control-label">FOV LOCK</label>
-                <label class="ad-Checkbox">
-                  <input id="FOVLock_CheckBox" class="ad-Checkbox-input" type="checkbox">
-                  <div class="ad-Checkbox-fake"></div>
-                </label>
-              </div>
-              <div class="ad-Control">
-                <label class="ad-Control-label">Autopilot</label>
-                <label class="ad-Checkbox">
-                  <input id="Autopilot_CheckBox" class="ad-Checkbox-input" type="checkbox">
-                  <div class="ad-Checkbox-fake"></div>
-                </label>
-              </div>
             </div>
-            <h3 class="ad-Controls-title">Status</h3>
-            <div class="ad-Controls-container">
-              <div class="ad-Control">
-                <label class="ad-Control-label">Status</label>
-                <input id="AGV_Status" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control">
-                <label class="ad-Control-label">State</label>
-                <input id="AGV_State" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control">
-                <label class="ad-Control-label">IsLiftUp</label>
-                <input id="AGV_IsLiftUp" class="ad-Text" type="text">
-              </div>
+            <div class="ad-Control">
+              <label class="ad-Control-label">Autopilot</label>
+              <label class="ad-Checkbox">
+                <input id="Autopilot_CheckBox" class="ad-Checkbox-input" type="checkbox">
+                <div class="ad-Checkbox-fake"></div>
+              </label>
             </div>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><label class="ad-Control-label">X</label>
-                <input id="AGV_X" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control"><label class="ad-Control-label">y</label>
-                <input id="AGV_Y" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control"><label class="ad-Control-label">Yaw</label>
-                <input id="AGV_Yaw" class="ad-Text" type="text">
-              </div>
-            </div>
-            <div class="ad-Controls-container">
-              <div class="ad-Control">
-                <label class="ad-Control-label">Battery</label>
-                <input id="AGV_Battery" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control">
-                <label class="ad-Control-label">Chargeing</label>
-                <input id="AGV_Chargeing" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control">
-                <label class="ad-Control-label">IsReady</label>
-                <input id="AGV_IsReady" class="ad-Text" type="text">
-              </div>
-            </div>
-            <div class="ad-Controls-container">
-              <div class="ad-Control">
-                <label class="ad-Control-label">POG</label>
-                <input id="AGV_IsProgress" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control">
-                <label class="ad-Control-label">IsMoving</label>
-                <input id="AGV_IsMoving" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control">
-                <label class="ad-Control-label">IsReady</label>
-                <input id="AGV_IsReady" class="ad-Text" type="text">
-              </div>
-            </div>
-            <h3 class="ad-Controls-title">Log Index</h3>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><label class="ad-Control-label">ScriptIdx</label>
-                <input id="AGV_ScriptIdx" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control"><label class="ad-Control-label">RunIdx</label>
-                <input id="AGV_RunIdx" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control"><label class="ad-Control-label">ErrorIdx</label>
-                <input id="AGV_ErrorIdx" class="ad-Text" type="text">
-              </div>
-            </div>           
           </div>
+          <h3 class="ad-Controls-title">Status</h3>
+          <div class="ad-Controls-container">
+            <div class="ad-Control">
+              <label class="ad-Control-label">Status</label>
+              <input id="AGV_Status" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control">
+              <label class="ad-Control-label">State</label>
+              <input id="AGV_State" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control">
+              <label class="ad-Control-label">IsLiftUp</label>
+              <input id="AGV_IsLiftUp" class="ad-Text" type="text">
+            </div>
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><label class="ad-Control-label">X</label>
+              <input id="AGV_X" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control"><label class="ad-Control-label">y</label>
+              <input id="AGV_Y" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control"><label class="ad-Control-label">Yaw</label>
+              <input id="AGV_Yaw" class="ad-Text" type="text">
+            </div>
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control">
+              <label class="ad-Control-label">Battery</label>
+              <input id="AGV_Battery" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control">
+              <label class="ad-Control-label">Chargeing</label>
+              <input id="AGV_Chargeing" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control">
+              <label class="ad-Control-label">IsReady</label>
+              <input id="AGV_IsReady" class="ad-Text" type="text">
+            </div>
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control">
+              <label class="ad-Control-label">POG</label>
+              <input id="AGV_IsProgress" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control">
+              <label class="ad-Control-label">IsMoving</label>
+              <input id="AGV_IsMoving" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control">
+              <label class="ad-Control-label">IsReady</label>
+              <input id="AGV_IsReady" class="ad-Text" type="text">
+            </div>
+          </div>
+          <h3 class="ad-Controls-title">Log Index</h3>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><label class="ad-Control-label">ScriptIdx</label>
+              <input id="AGV_ScriptIdx" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control"><label class="ad-Control-label">RunIdx</label>
+              <input id="AGV_RunIdx" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control"><label class="ad-Control-label">ErrorIdx</label>
+              <input id="AGV_ErrorIdx" class="ad-Text" type="text">
+            </div>
+          </div>           
         </div>
-        <div class="ad-Container-controls">
-          <div class="ad-Controls">
-            <h3 class="ad-Controls-title">Control</h3>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-13')"><i class="far fa-caret-square-up fa-2x" style="color: var(--purple-l);"></i></button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-10')"><i class="fas fa-arrow-up fa-2x" style="color: var(--green-l);"></i></button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-14')"><i class="far fa-caret-square-down fa-2x" style="color: var(--purple-l);"></i></button></div>
+      </div>
+      <div class="ad-Container-controls">
+        <div class="ad-Controls">
+          <h3 class="ad-Controls-title">Control</h3>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-13')"><i class="far fa-caret-square-up fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-10')"><i class="fas fa-arrow-up fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-14')"><i class="far fa-caret-square-down fa-2x" style="color: var(--purple-l);"></i></button></div>
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-11')"><i class="fas fa-undo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-15')"><i class="fas fa-sync-alt fa-2x fa-rotate-90" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-12')"><i class="fas fa-redo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-16')"><i class="fas fa-sign-in-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="MainAGV_GETAWAY('-1')"><i class="fas fa-exclamation-circle fa-2x"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-17')"><i class="fas fa-sign-out-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-5')" style="color: var(--green-l);">Servo<br/>On</button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-6')" style="color: #da1e1e;">Servo<br/>Off</button></div>
+          </div>
+          <h3 class="ad-Controls-title">Shelf</h3>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><label class="ad-Control-label">X</label>
+              <input id="Shelf_X" class="ad-Text" type="text">
             </div>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-11')"><i class="fas fa-undo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-15')"><i class="fas fa-sync-alt fa-2x fa-rotate-90" style="color: var(--green-l);"></i></button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-12')"><i class="fas fa-redo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><label class="ad-Control-label">y</label>
+              <input id="Shelf_Y" class="ad-Text" type="text">
             </div>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-16')"><i class="fas fa-sign-in-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="MainAGV_GETAWAY('-1')"><i class="fas fa-exclamation-circle fa-2x"></i></button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-17')"><i class="fas fa-sign-out-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
+            <div class="ad-Control"><label class="ad-Control-label">Yaw</label>
+              <input id="Shelf_Yaw" class="ad-Text" type="text">
             </div>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-5')" style="color: var(--green-l);">Servo<br/>On</button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-6')" style="color: #da1e1e;">Servo<br/>Off</button></div>
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control">
+              <label class="ad-Control-label">Shelf LOCK</label>
+              <label class="ad-Checkbox">
+                <input id="FOVLock_CheckBox" class="ad-Checkbox-input" type="checkbox">
+                <div class="ad-Checkbox-fake"></div>
+              </label>
             </div>
-            <h3 class="ad-Controls-title">Shelf</h3>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><label class="ad-Control-label">X</label>
-                <input id="Shelf_X" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control"><label class="ad-Control-label">y</label>
-                <input id="Shelf_Y" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control"><label class="ad-Control-label">Yaw</label>
-                <input id="Shelf_Yaw" class="ad-Text" type="text">
-              </div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
+          </div>
+          <h3 class="ad-Controls-title">Script</h3>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><label class="ad-Control-label">Type</label>
+              <input id="AGV_Script_Type" class="ad-Text" type="text">
             </div>
-            <div class="ad-Controls-container">
-              <div class="ad-Control">
-                <label class="ad-Control-label">Shelf LOCK</label>
-                <label class="ad-Checkbox">
-                  <input id="FOVLock_CheckBox" class="ad-Checkbox-input" type="checkbox">
-                  <div class="ad-Checkbox-fake"></div>
-                </label>
-              </div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><label class="ad-Control-label">Parameter</label>
+              <input id="AGV_Script_Parameter" class="ad-Text" type="text">
             </div>
-            <h3 class="ad-Controls-title">Script</h3>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><label class="ad-Control-label">Type</label>
-                <input id="AGV_Script_Type" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control"><label class="ad-Control-label">Parameter</label>
-                <input id="AGV_Script_Parameter" class="ad-Text" type="text">
-              </div>
-              <div class="ad-Control"><label class="ad-Control-label">Code</label>
-                <input id="AGV_Script_Code" class="ad-Text" type="text">
-              </div>
+            <div class="ad-Control"><label class="ad-Control-label">Code</label>
+              <input id="AGV_Script_Code" class="ad-Text" type="text">
             </div>
-            <div class="ad-Controls-container">
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-3')"><i class="far fa-play-circle fa-2x" style="color: var(--green-l);"></i></button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-4')"><i class="far fa-pause-circle fa-2x" style="color: var(--purple-l);"></i></button></div>
-              <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="MainAGV_GETAWAY('-2')"><i class="far fa-stop-circle fa-2x""></i></button></div>
-            </div>
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-3')"><i class="far fa-play-circle fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-4')"><i class="far fa-pause-circle fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="MainAGV_GETAWAY('-2')"><i class="far fa-stop-circle fa-2x""></i></button></div>
           </div>
         </div>
       </div>
@@ -401,6 +328,10 @@ window.Control = {
         {name: 'Shelf_2', id: "Shelf2", type: 'Shelf', code: "050010", show: true   , isLoading: false , disable: false},
         {name: 'Shelf_3', id: "Shelf3", type: 'Shelf', code: "060010", show: true   , isLoading: false , disable: false},
     ],
+    obj: [
+      {name: "powerPosition", type: "power", code: "060050"},
+      {name: "power", type: "power", code: "060060"},
+    ],
     main: 2,
     map: [
       [1,1,0,0,1,1,1],
@@ -409,7 +340,7 @@ window.Control = {
       [1,1,0,0,0,0,1],
       [1,0,0,0,0,0,1],
       [1,0,0,0,0,0,1],
-      [1,0,0,0,0,0,1],
+      [1,0,0,0,0,-1,-2],
     ],
 
     setMain: function (name) {
@@ -528,6 +459,29 @@ window.builder = {
         document.getElementById("AGV_IsMoving")     .value = data['Status']['IsMoving'];
         document.getElementById("AGV_IsReady")      .value = data['Status']['IsReady'];
         this.setPreviewPaths(data['Priview']);
+    },
+    setMap: function () {
+      $("#map tr").remove();
+      for(var i in Control.map){
+        var DOM = $(`<tr></tr>`);
+        for(var j in Control.map[i]){
+          var DOM_i = $(`<td class="square"></td>`);
+          DOM_i.attr("id", "0"+i+"00"+j+"0");
+          if(Control.map[i][j] == 0){
+            DOM_i.addClass("Walk");
+          }else if(Control.map[i][j] == 1){
+            DOM_i.addClass("unWalk");
+          }
+          if(Control.map[i][j] == -1){
+            DOM_i.append(`<i id="power" class="static static-i fas fa-charging-station fa-lg" aria-hidden="true"></i>`);
+          }else if(Control.map[i][j] == -2){
+            DOM_i.addClass("unWalk");
+            DOM_i.append(`<i id="powerUnwalk" class="static static-i fas fa-plug tf90 fa-lg" aria-hidden="true"></i>`);
+          }
+          DOM.append(DOM_i);
+        }
+        $("#map").append(DOM);
+      }
     },
     setPosition: function (id, code, yaw) {
         $('#'+id).css({
@@ -687,6 +641,7 @@ window.builder = {
 }
 document.addEventListener("DOMContentLoaded", function () {
   console.log(builder.Autopilot_Path);
+  builder.setMap();
   builder.basicPrepare();
   // builder.setPreviewPaths();
   Control.getMainAGVStatus();
