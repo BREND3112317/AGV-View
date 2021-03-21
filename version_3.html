@@ -20,7 +20,7 @@
   <!--Main CSS-->
   <link href="main.css" rel="stylesheet" />
   <!--AGV View CSS-->
-  <link href="AGV_View.css" rel="stylesheet" />
+  <link href="AGV_View_test.css" rel="stylesheet" />
   <!--AGV Table CSS-->
   <link href="AGV_table.css" rel="stylesheet" />
   <!--Icon css-->
@@ -54,7 +54,7 @@
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <div id="app" class="ad-App">
+  <div id="app" class="container ad-App">
     <div class="ad-Container">
       <div class="ad-Container-main" style="background-color: var(--gray);">
         <div class="ad-Container-svg">
@@ -165,29 +165,18 @@
               <input id="AGV_IsReady" class="ad-Text" type="text">
             </div>
           </div>
-          <h3 class="ad-Controls-title">Shelf</h3>
+          <h3 class="ad-Controls-title">Log Index</h3>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><label class="ad-Control-label">X</label>
-              <input id="Shelf_X" class="ad-Text" type="text">
+            <div class="ad-Control"><label class="ad-Control-label">ScriptIdx</label>
+              <input id="AGV_ScriptIdx" class="ad-Text" type="text">
             </div>
-            <div class="ad-Control"><label class="ad-Control-label">y</label>
-              <input id="Shelf_Y" class="ad-Text" type="text">
+            <div class="ad-Control"><label class="ad-Control-label">RunIdx</label>
+              <input id="AGV_RunIdx" class="ad-Text" type="text">
             </div>
-            <div class="ad-Control"><label class="ad-Control-label">Yaw</label>
-              <input id="Shelf_Yaw" class="ad-Text" type="text">
+            <div class="ad-Control"><label class="ad-Control-label">ErrorIdx</label>
+              <input id="AGV_ErrorIdx" class="ad-Text" type="text">
             </div>
-          </div>  
-          <div class="ad-Controls-container">
-            <div class="ad-Control">
-              <label class="ad-Control-label">Shelf LOCK</label>
-              <label class="ad-Checkbox">
-                <input id="FOVLock_CheckBox" class="ad-Checkbox-input" type="checkbox">
-                <div class="ad-Checkbox-fake"></div>
-              </label>
-            </div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
-          </div>   
+          </div>           
         </div>
       </div>
       <div class="ad-Container-controls">
@@ -212,18 +201,29 @@
             <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-5')" style="color: var(--green-l);">Servo<br/>On</button></div>
             <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-6')" style="color: #da1e1e;">Servo<br/>Off</button></div>
           </div>
-          <h3 class="ad-Controls-title">Log Index</h3>
+          <h3 class="ad-Controls-title">Shelf</h3>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><label class="ad-Control-label">ScriptIdx</label>
-              <input id="AGV_ScriptIdx" class="ad-Text" type="text">
+            <div class="ad-Control"><label class="ad-Control-label">X</label>
+              <input id="Shelf_X" class="ad-Text" type="text">
             </div>
-            <div class="ad-Control"><label class="ad-Control-label">RunIdx</label>
-              <input id="AGV_RunIdx" class="ad-Text" type="text">
+            <div class="ad-Control"><label class="ad-Control-label">y</label>
+              <input id="Shelf_Y" class="ad-Text" type="text">
             </div>
-            <div class="ad-Control"><label class="ad-Control-label">ErrorIdx</label>
-              <input id="AGV_ErrorIdx" class="ad-Text" type="text">
+            <div class="ad-Control"><label class="ad-Control-label">Yaw</label>
+              <input id="Shelf_Yaw" class="ad-Text" type="text">
             </div>
-          </div>      
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control">
+              <label class="ad-Control-label">Shelf LOCK</label>
+              <label class="ad-Checkbox">
+                <input id="FOVLock_CheckBox" class="ad-Checkbox-input" type="checkbox">
+                <div class="ad-Checkbox-fake"></div>
+              </label>
+            </div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
+          </div>
           <h3 class="ad-Controls-title">Script</h3>
           <div class="ad-Controls-container">
             <div class="ad-Control"><label class="ad-Control-label">Type</label>
@@ -243,9 +243,9 @@
           </div>
         </div>
       </div>
-      <!-- <div class="ad-Container-controls">
-
-      </div> -->
+      <div class="ad-Container-controls">
+        
+      </div>
     </div>
   </div>
 </body>
