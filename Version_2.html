@@ -185,8 +185,8 @@
                 <div class="ad-Checkbox-fake"></div>
               </label>
             </div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button id="Shelf_turn_left" class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
           </div>   
         </div>
       </div>
@@ -194,23 +194,23 @@
         <div class="ad-Controls">
           <h3 class="ad-Controls-title">Control</h3>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-13')"><i class="far fa-caret-square-up fa-2x" style="color: var(--purple-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-10')"><i class="fas fa-arrow-up fa-2x" style="color: var(--green-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-14')"><i class="far fa-caret-square-down fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-13')"><i class="far fa-caret-square-up fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-10')"><i class="fas fa-arrow-up fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-14')"><i class="far fa-caret-square-down fa-2x" style="color: var(--purple-l);"></i></button></div>
           </div>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-11')"><i class="fas fa-undo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-15')"><i class="fas fa-sync-alt fa-2x fa-rotate-90" style="color: var(--green-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-12')"><i class="fas fa-redo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-11')"><i class="fas fa-undo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-15')"><i class="fas fa-sync-alt fa-2x fa-rotate-90" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-12')"><i class="fas fa-redo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
           </div>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-16')"><i class="fas fa-sign-in-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="MainAGV_GETAWAY('-1')"><i class="fas fa-exclamation-circle fa-2x"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-17')"><i class="fas fa-sign-out-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-16')"><i class="fas fa-sign-in-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--delete" type="button" onclick="Control.do_mainAGVGATEWAY('-1')"><i class="fas fa-exclamation-circle fa-2x"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-17')"><i class="fas fa-sign-out-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
           </div>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-5')" style="color: var(--green-l);">Servo<br/>On</button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-6')" style="color: #da1e1e;">Servo<br/>Off</button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-5')" style="color: var(--green-l);">Servo<br/>On</button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-6')" style="color: #da1e1e;">Servo<br/>Off</button></div>
           </div>
           <h3 class="ad-Controls-title">Log Index</h3>
           <div class="ad-Controls-container">
@@ -237,9 +237,9 @@
             </div>
           </div>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-3')"><i class="far fa-play-circle fa-2x" style="color: var(--green-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="MainAGV_GETAWAY('-4')"><i class="far fa-pause-circle fa-2x" style="color: var(--purple-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="MainAGV_GETAWAY('-2')"><i class="far fa-stop-circle fa-2x""></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-3')"><i class="far fa-play-circle fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-4')"><i class="far fa-pause-circle fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="Control.do_mainAGVGATEWAY('-2')"><i class="far fa-stop-circle fa-2x""></i></button></div>
           </div>
         </div>
       </div>
@@ -285,7 +285,7 @@ window.system = {
                 console.log("ajax_request - JSON.parse error message: ", err);
             }
             if(xmlhttp.status === 200){
-                if(typeof(data.code) !== "undefined") {
+                if(typeof data.code !== "undefined") {
                     if(data.code === 0) {
                         if(typeof(callback.success) !== "undefined") {
                             callback.success(data.data);
@@ -320,12 +320,12 @@ window.system = {
 }
 
 window.Control = {
-    requestDATAURL: "/AGV-API/src/API/ajax_AGVStatus.php",
-    requestGETAWAYURL: "/AGV-API/src/API/ajax_AGVGetaway.php",
+    requestDATAURL: "/AGV/AGV-API/src/API/ajax_AGVStatus.php",
+    requestGETAWAYURL: "/AGV/AGV-API/src/API/ajax_AGVGetaway.php",
     service: [
         {name: 'AGV_1', id: 'ITRI_3-1', type: "AGV",   code: "000000", yaw: 0   , show: true   , isLoading: false , disable: false},
         {name: 'AGV_2', id: 'ITRI_3-2', type: "AGV",   code: "000000", yaw: 0   , show: false  , isLoading: false , disable: true },
-        {name: 'AGV_3', id: 'ITRI_3-3', type: "AGV",   code: "040020", yaw: 180 , show: true   , isLoading: true  , disable: false},
+        {name: 'AGV_3', id: 'ITRI_3-3', type: "AGV",   code: "000000", yaw: 0   , show: true   , isLoading: true  , disable: false},
         {name: 'AGV_4', id: 'ITRI_3-4', type: "AGV",   code: "000000", yaw: 0   , show: false  , isLoading: false , disable: true },
         {name: 'Shelf_1', id: "Shelf1", type: 'Shelf', code: "040010", show: true   , isLoading: false , disable: false},
         {name: 'Shelf_2', id: "Shelf2", type: 'Shelf', code: "050010", show: true   , isLoading: false , disable: false},
@@ -366,16 +366,38 @@ window.Control = {
         failed: callback.failed,
       });
     },
-
+    pre_AGVGateway: function (name, code, param = new Array) {
+      // if(typeof param == "undefined"){
+      //   param = [];
+      // }
+      // console.log("Debug - param", param);
+      system.ajax_request(this.requestGETAWAYURL, 
+        {
+            Name: name,
+            Cmd: code,
+            Param: param,
+        },
+        {
+            success: function (data) {
+                console.log("AGVGateway - success", data);
+                
+            },
+            failed: function (data) {
+                console.log("AGVGateway - failed", data);
+            }
+        });
+    },
     pre_getAGVStatus: function (name, code) {
         system.ajax_request(this.requestDATAURL, 
         {
-            name: name,
+            Name: name,
             Cmd: code,
         },
         {
             success: function (data) {
                 console.log("getAGVStatus - success", data);
+                // console.log("Debug", Control.service[Control.main]);
+                Control.setAGVStatus(data);
                 builder.update_ControlData(data);
                 if (data['StatusCode'] === 0) {
                     builder.setPosition(name, data['Attitude']['Code'], data['Attitude']['Yaw']);
@@ -390,10 +412,34 @@ window.Control = {
         console.log(data);
         
     },
-    getMainAGVStatus: function () {
-        this.pre_getAGVStatus(this.service[this.main].name, 0);
-        
+
+    setAGVStatus: function(data) {
+      Control.service[Control.main].code = data['Attitude']['Code'];
+      Control.service[Control.main].yaw = parseFloat(data['Attitude']['Yaw']);
     },
+    getMainAGVStatus: function () {
+        console.log("Loading", Control.main)
+        this.pre_getAGVStatus(this.service[this.main].id, 0);  
+    },
+    getAllAGVStatus: function () {
+      for(var sv in Control.service){
+        if(Control.service[sv].type == "AGV" && Control.service[sv].isLoading == true) {
+          if(sv == Control.main){
+            Control.getMainAGVStatus();
+          }
+        }
+      }
+    },
+
+    setAGVPosition: function () {
+      var param = {};
+      param['code'] = "000020";
+      param['yaw'] = 0;
+      this.pre_AGVGateway(this.service[this.main].id, -1000, param);
+    },
+    do_mainAGVGATEWAY: function(code, param = new Array) {
+      this.pre_AGVGateway(Control.service[Control.main].id, code, param);
+    }
 }
 
 window.calculate = {
@@ -442,6 +488,9 @@ window.calculate = {
         case 270:
           return 90;
       }
+    },
+    iconViewYaw: function(yaw) {
+      return this.absYaw(yaw);
     }
 }
 
@@ -450,18 +499,25 @@ window.builder = {
     Absolute_X: [0, 78, 156, 233, 311, 390, 468],
     Absolute_Y: [0, 78, 156, 234, 314, 391, 469],
     update_ControlData: function (data){
-        document.getElementById("AGV_Status")       .value = data['StatusCode'];
-        document.getElementById("AGV_State")        .value = data['Status']['State'];
-        document.getElementById("AGV_IsLiftUp")     .value = data['Status']['IsLiftUp'];
-        document.getElementById("AGV_X")            .value = data["Attitude"]['Code'][4];
-        document.getElementById("AGV_Y")            .value = data["Attitude"]['Code'][1];
-        document.getElementById("AGV_Yaw")          .value = calculate.absYawName(parseInt(data["Attitude"]['Yaw']));
-        document.getElementById("AGV_Battery")      .value = data["Battery"];
-        document.getElementById("AGV_IsReady")      .value = data['Status']['IsReady'];
-        document.getElementById("AGV_IsProgress")   .value = data['AgvLogIndex']['IsProgress'];
-        document.getElementById("AGV_IsMoving")     .value = data['Status']['IsMoving'];
-        document.getElementById("AGV_IsReady")      .value = data['Status']['IsReady'];
+        try { // statements to try
+          document.getElementById("AGV_Status")       .value = data['StatusCode'];
+          document.getElementById("AGV_State")        .value = data['Status']['State'];
+          document.getElementById("AGV_IsLiftUp")     .value = data['Status']['IsLiftUp'];
+          document.getElementById("AGV_X")            .value = data["Attitude"]['Code'][4];
+          document.getElementById("AGV_Y")            .value = data["Attitude"]['Code'][1];
+          document.getElementById("AGV_Yaw")          .value = calculate.absYawName(parseInt(data["Attitude"]['Yaw']));
+          document.getElementById("AGV_Battery")      .value = data["Battery"];
+          document.getElementById("AGV_IsReady")      .value = data['Status']['IsReady'];
+          document.getElementById("AGV_IsProgress")   .value = data['AgvLogIndex']['IsProgress'];
+          document.getElementById("AGV_IsMoving")     .value = data['Status']['IsMoving'];
+          document.getElementById("AGV_IsReady")      .value = data['Status']['IsReady'];
+
+        }
+        catch (e) {
+          console.log(e); // 將例外傳至例外處理機制
+        }
         this.viewMap(data['Map']);
+        this.setFovLock();
         this.setPreviewPaths(data['Priview']);
     },
     viewMap: function (map) {
@@ -477,7 +533,7 @@ window.builder = {
           }else if(map[i][j] < 0){
             DOM_i.addClass("unWalk");
           }
-          if(map[i][j] == 2){
+          if(map[i][j] == 12){
             DOM_i.append(`<i id="power" class="static static-i fas fa-charging-station fa-lg" aria-hidden="true"></i>`);
           }else if(map[i][j] == -3){
             DOM_i.addClass("unWalk");
@@ -561,6 +617,9 @@ window.builder = {
         builder.clearPreviewPath();
       });
     },
+    setControlButtom: function () {
+
+    },
     setServiceRadio: function (e) {
       // console.log(e.target.value);
       $("#" + Control.service[Control.main].id).children().removeClass("AGV-main");
@@ -572,14 +631,13 @@ window.builder = {
       Control.service[Control.main].isLoading = $("#Loading_CheckBox").is(":checked");
       console.log(Control.service[Control.main].isLoading);
     },
-    setFovLock: function (e) {
-      console.log(e.target.checked);
+    setFovLock: function () {
       var yaw = 0;
-      if(e.target.checked === true) {
+      if($("#FOVLock_CheckBox").is(":checked") === true) {
         yaw = Control.service[Control.main].yaw;
       }
       $(".static-map").css('transform', `rotate(${calculate.viewYaw(parseInt(yaw))}deg)`);
-      $(".static-i").css('transform', `rotate(${calculate.viewYaw(parseInt(yaw))}deg)`);
+      $(".static-i").css('transform', `rotate(${calculate.iconViewYaw(parseInt(yaw))}deg)`);
     },
     clearPreviewPath: function () {
       for (var point in Autopilot_Path) {
@@ -649,7 +707,8 @@ document.addEventListener("DOMContentLoaded", function () {
   builder.viewMap();
   builder.basicPrepare();
   // builder.setPreviewPaths();
-  Control.getMainAGVStatus();
+  // Control.getMainAGVStatus();
+  setInterval("Control.getAllAGVStatus()", 1000);
 });
 </script>
 </html>
