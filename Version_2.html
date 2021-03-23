@@ -57,12 +57,10 @@
   <div id="app" class="ad-App">
     <div class="ad-Container">
       <div class="ad-Container-main" style="background-color: var(--gray);">
-        <div class="ad-Container-svg">
-          <table class="ad-Container-table">
-            <tbody id="map" class="class class-2108 static static-map">
-            </tbody>
-          </table>
-        </div>
+        <table class="ad-Container-table">
+          <tbody id="map" class="class class-2108 static static-map">
+          </tbody>
+        </table>
       </div>
       <div class="ad-Container-controls">
         <div class="ad-Controls">
@@ -118,12 +116,12 @@
               <input id="AGV_Status" class="ad-Text" type="text">
             </div>
             <div class="ad-Control">
-              <label class="ad-Control-label">State</label>
-              <input id="AGV_State" class="ad-Text" type="text">
+              <label class="ad-Control-label">Battery</label>
+              <input id="AGV_Battery" class="ad-Text" type="text">
             </div>
             <div class="ad-Control">
-              <label class="ad-Control-label">IsLiftUp</label>
-              <input id="AGV_IsLiftUp" class="ad-Text" type="text">
+              <label class="ad-Control-label">State</label>
+              <input id="AGV_State" class="ad-Text" type="text">
             </div>
           </div>
           <div class="ad-Controls-container">
@@ -139,22 +137,8 @@
           </div>
           <div class="ad-Controls-container">
             <div class="ad-Control">
-              <label class="ad-Control-label">Battery</label>
-              <input id="AGV_Battery" class="ad-Text" type="text">
-            </div>
-            <div class="ad-Control">
-              <label class="ad-Control-label">Chargeing</label>
-              <input id="AGV_Chargeing" class="ad-Text" type="text">
-            </div>
-            <div class="ad-Control">
-              <label class="ad-Control-label">IsReady</label>
-              <input id="AGV_IsReady" class="ad-Text" type="text">
-            </div>
-          </div>
-          <div class="ad-Controls-container">
-            <div class="ad-Control">
-              <label class="ad-Control-label">POG</label>
-              <input id="AGV_IsProgress" class="ad-Text" type="text">
+              <label class="ad-Control-label">IsLiftUp</label>
+              <input id="AGV_IsLiftUp" class="ad-Text" type="text">
             </div>
             <div class="ad-Control">
               <label class="ad-Control-label">IsMoving</label>
@@ -165,33 +149,6 @@
               <input id="AGV_IsReady" class="ad-Text" type="text">
             </div>
           </div>
-          <h3 class="ad-Controls-title">Shelf</h3>
-          <div class="ad-Controls-container">
-            <div class="ad-Control"><label class="ad-Control-label">X</label>
-              <input id="Shelf_X" class="ad-Text" type="text">
-            </div>
-            <div class="ad-Control"><label class="ad-Control-label">y</label>
-              <input id="Shelf_Y" class="ad-Text" type="text">
-            </div>
-            <div class="ad-Control"><label class="ad-Control-label">Yaw</label>
-              <input id="Shelf_Yaw" class="ad-Text" type="text">
-            </div>
-          </div>  
-          <div class="ad-Controls-container">
-            <div class="ad-Control">
-              <label class="ad-Control-label">Shelf LOCK</label>
-              <label class="ad-Checkbox">
-                <input id="FOVLock_CheckBox" class="ad-Checkbox-input" type="checkbox">
-                <div class="ad-Checkbox-fake"></div>
-              </label>
-            </div>
-            <div class="ad-Control"><button id="Shelf_turn_left" class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
-          </div>   
-        </div>
-      </div>
-      <div class="ad-Container-controls">
-        <div class="ad-Controls">
           <h3 class="ad-Controls-title">Control</h3>
           <div class="ad-Controls-container">
             <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-13')"><i class="far fa-caret-square-up fa-2x" style="color: var(--purple-l);"></i></button></div>
@@ -209,8 +166,25 @@
             <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-17')"><i class="fas fa-sign-out-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
           </div>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-5')" style="color: var(--green-l);">Servo<br/>On</button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-6')" style="color: #da1e1e;">Servo<br/>Off</button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-5')" style="color: var(--green-l);">Servo On</button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-6')" style="color: #da1e1e;">Servo Off</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="ad-Container-controls">
+        <div class="ad-Controls">
+          <h3 class="ad-Controls-title">Script</h3>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-3')"><i class="far fa-play-circle fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-4')"><i class="far fa-pause-circle fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="Control.do_mainAGVGATEWAY('-2')"><i class="far fa-stop-circle fa-2x""></i></button></div>
+          </div>
+          <div class="ad-Controls-container">
+            <div class="ad-Control-listgroup">
+              <ul class="list-group" id="script_list">
+                <li class="list-group-item list-group-item-action list-group-item-primary">test</li>
+              </ul>
+            </div>
           </div>
           <h3 class="ad-Controls-title">Log Index</h3>
           <div class="ad-Controls-container">
@@ -223,24 +197,15 @@
             <div class="ad-Control"><label class="ad-Control-label">ErrorIdx</label>
               <input id="AGV_ErrorIdx" class="ad-Text" type="text">
             </div>
+          </div>
+          <h3 class="ad-Controls-title">Shelf</h3>
+          <div class="ad-Controls-container">
+            <div class="ad-Control"><label class="ad-Control-label">Yaw</label>
+              <input id="Shelf_Yaw" class="ad-Text" type="text">
+            </div>
+            <div class="ad-Control"><button id="Shelf_turn_left" class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
           </div>      
-          <h3 class="ad-Controls-title">Script</h3>
-          <div class="ad-Controls-container">
-            <div class="ad-Control"><label class="ad-Control-label">Type</label>
-              <input id="AGV_Script_Type" class="ad-Text" type="text">
-            </div>
-            <div class="ad-Control"><label class="ad-Control-label">Parameter</label>
-              <input id="AGV_Script_Parameter" class="ad-Text" type="text">
-            </div>
-            <div class="ad-Control"><label class="ad-Control-label">Code</label>
-              <input id="AGV_Script_Code" class="ad-Text" type="text">
-            </div>
-          </div>
-          <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-3')"><i class="far fa-play-circle fa-2x" style="color: var(--green-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-4')"><i class="far fa-pause-circle fa-2x" style="color: var(--purple-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="Control.do_mainAGVGATEWAY('-2')"><i class="far fa-stop-circle fa-2x""></i></button></div>
-          </div>
         </div>
       </div>
       <!-- <div class="ad-Container-controls">
@@ -320,8 +285,8 @@ window.system = {
 }
 
 window.Control = {
-    requestDATAURL: "/AGV/AGV-API/src/API/ajax_AGVStatus.php",
-    requestGETAWAYURL: "/AGV/AGV-API/src/API/ajax_AGVGetaway.php",
+    requestDATAURL: "/AGV-API/src/API/ajax_AGVStatus.php",
+    requestGETAWAYURL: "/AGV-API/src/API/ajax_AGVGetaway.php",
     service: [
         {name: 'AGV_1', id: 'ITRI_3-1', type: "AGV",   code: "000000", yaw: 0   , show: true   , isLoading: false , disable: false},
         {name: 'AGV_2', id: 'ITRI_3-2', type: "AGV",   code: "000000", yaw: 0   , show: false  , isLoading: false , disable: true },
@@ -495,6 +460,27 @@ window.calculate = {
 }
 
 window.builder = {
+    AGVScript: {
+      "50": "右轉90度",
+      "60": "右轉180度",
+      "70": "左轉90度",
+      "80": "左轉180度",
+      "150": "右轉90度(轉盤不動)",
+      "160": "右轉180度(轉盤不動)",
+      "170": "左轉90度(轉盤不動)",
+      "180": "左轉180度(轉盤不動)",
+      "300": "腳本暫停",
+      "330": "轉盤上升(含自動對位)",
+      "340": "轉盤下降(含自動對位)",
+      "350": "轉盤右轉90度",
+      "360": "轉盤右轉180度",
+      "370": "轉盤左轉90度",
+      "380": "轉盤右轉180度",
+      "500": "等待",
+      "6000": "前進充電站 - 距離",
+      "7000": "離開充電站 - 距離",
+      "10000": "往前走",
+    },
     loading: false,
     Absolute_X: [0, 78, 156, 233, 311, 390, 468],
     Absolute_Y: [0, 78, 156, 234, 314, 391, 469],
@@ -508,7 +494,6 @@ window.builder = {
           document.getElementById("AGV_Yaw")          .value = calculate.absYawName(parseInt(data["Attitude"]['Yaw']));
           document.getElementById("AGV_Battery")      .value = data["Battery"];
           document.getElementById("AGV_IsReady")      .value = data['Status']['IsReady'];
-          document.getElementById("AGV_IsProgress")   .value = data['AgvLogIndex']['IsProgress'];
           document.getElementById("AGV_IsMoving")     .value = data['Status']['IsMoving'];
           document.getElementById("AGV_IsReady")      .value = data['Status']['IsReady'];
 
@@ -517,6 +502,7 @@ window.builder = {
           console.log(e); // 將例外傳至例外處理機制
         }
         this.viewMap(data['Map']);
+        this.showScript(data['AgvScript']);
         this.setFovLock();
         this.setPreviewPaths(data['Priview']);
     },
@@ -544,6 +530,32 @@ window.builder = {
         $("#map").append(DOM);
       }
     },
+    showScript: function(data) {
+      $('#script_list >li').remove();
+      for(var script in data){
+        var code = parseInt(data[script].Code);
+        var DOM = $(`<li class="list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center"></li>`);
+        // console.log(data[script].Code);
+        if(typeof builder.AGVScript[code] !== "undefined"){
+          DOM.text(builder.AGVScript[code]);
+        }else if(code>=500 && code<600){
+          DOM.text(builder.AGVScript["500"]);
+          DOM.append(`<span class="badge badge-primary badge-pill">${(code%500)}</span>`);
+        }else if(code>=6000 && code<7000){
+          DOM.text(builder.AGVScript["6000"]);
+          DOM.append(`<span class="badge badge-primary badge-pill">${(code%6000)}</span>`);
+        }else if(code>=7000 && code<8000){
+          DOM.text(builder.AGVScript["7000"]);
+          DOM.append(`<span class="badge badge-primary badge-pill">${(code%7000)}</span>`);
+        }else if(code>=10000){
+          DOM.text(builder.AGVScript["10000"]);
+          DOM.append(`<span class="badge badge-primary badge-pill">${(code%10000)/100}</span>`);
+        }else{
+          DOM.text(code);
+        }
+        $('#script_list').append(DOM);
+      }
+    },
     setPosition: function (id, code, yaw) {
         $('#'+id).css({
             top: this.Absolute_X[parseInt(code[1])]+"px",
@@ -562,17 +574,7 @@ window.builder = {
             console.log(p);
         }
     },
-    // clearAutopilotPath: function () {
-    //     for(var p in Autopilot_Path){
-    //         if((AutopilotPath[p] === PowerPosition) || (AutopilotPath[p] === Power)) {
-    //             $('#'+Autopilot_Path[p]).css('color', '');
-    //         }else{
-    //             $('#'+Autopilot_Path[p]).empty();
-    //         }
-    //     }
-    //     Autopilot_Path = [];
-    // },
-    basicPrepare: function () { // todo: service radio 沒有吃到onclick function
+    basicPrepare: function () {
       var ClassName = "";
       loading_checkBx = false;
       for(var sv in Control.service) {
@@ -707,8 +709,8 @@ document.addEventListener("DOMContentLoaded", function () {
   builder.viewMap();
   builder.basicPrepare();
   // builder.setPreviewPaths();
-  // Control.getMainAGVStatus();
-  setInterval("Control.getAllAGVStatus()", 1000);
+  Control.getMainAGVStatus();
+  // setInterval("Control.getAllAGVStatus()", 1000);
 });
 </script>
 </html>
