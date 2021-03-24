@@ -151,23 +151,23 @@
           </div>
           <h3 class="ad-Controls-title">Control</h3>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-13')"><i class="far fa-caret-square-up fa-2x" style="color: var(--purple-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-10')"><i class="fas fa-arrow-up fa-2x" style="color: var(--green-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-14')"><i class="far fa-caret-square-down fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button id="ShelfUp-button"   class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-13')"><i class="far fa-caret-square-up fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button id="AGVMove-button"   class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-10')"><i class="fas fa-arrow-up fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button id="ShelfDown-button" class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-14')"><i class="far fa-caret-square-down fa-2x" style="color: var(--purple-l);"></i></button></div>
           </div>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-11')"><i class="fas fa-undo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-15')"><i class="fas fa-sync-alt fa-2x fa-rotate-90" style="color: var(--green-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-12')"><i class="fas fa-redo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button id="TurnLeft-button"  class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-11')"><i class="fas fa-undo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button id="TurnBack-button"  class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-15')"><i class="fas fa-sync-alt fa-2x fa-rotate-90" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button id="TurnRight-button" class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-12')"><i class="fas fa-redo-alt fa-2x" style="color: var(--green-l);"></i></button></div>
           </div>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-16')"><i class="fas fa-sign-in-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--delete" type="button" onclick="Control.do_mainAGVGATEWAY('-1')"><i class="fas fa-exclamation-circle fa-2x"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-17')"><i class="fas fa-sign-out-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
+            <div class="ad-Control"><button id="ChargeIn-button"  class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-16')"><i class="fas fa-sign-in-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
+            <div class="ad-Control"><button id="DirectStop-button" class="ad-Button ad-Button--delete" type="button" onclick="Control.do_mainAGVGATEWAY('-1')"><i class="fas fa-exclamation-circle fa-2x"></i></button></div>
+            <div class="ad-Control"><button id="ChargeOut-button" class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-17')"><i class="fas fa-sign-out-alt fa-2x" style="color: var(--yellow-l);"></i></button></div>
           </div>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-5')" style="color: var(--green-l);">Servo On</button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-6')" style="color: #da1e1e;">Servo Off</button></div>
+            <div class="ad-Control"><button id="ServoOn-button"   class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-5')" style="color: var(--green-l);">Servo On</button></div>
+            <div class="ad-Control"><button id="ServoOff-button"  class="ad-Button ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-6')" style="color: #da1e1e;">Servo Off</button></div>
           </div>
         </div>
       </div>
@@ -175,11 +175,22 @@
         <div class="ad-Controls">
           <h3 class="ad-Controls-title">Script</h3>
           <div class="ad-Controls-container">
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-3')"><i class="far fa-play-circle fa-2x" style="color: var(--green-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-4')"><i class="far fa-pause-circle fa-2x" style="color: var(--purple-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button  ad-Button--delete" type="button" onclick="Control.do_mainAGVGATEWAY('-2')"><i class="far fa-stop-circle fa-2x""></i></button></div>
+            <div class="ad-Control"><button id="ScriptContinue-button"  class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-3')"><i class="far fa-play-circle fa-2x" style="color: var(--green-l);"></i></button></div>
+            <div class="ad-Control"><button id="ScriptStop-button"      class="ad-Button  ad-Button--reset" type="button" onclick="Control.do_mainAGVGATEWAY('-4')"><i class="far fa-pause-circle fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button id="ScriptOver-button"      class="ad-Button  ad-Button--delete" type="button" onclick="Control.do_mainAGVGATEWAY('-2')"><i class="far fa-stop-circle fa-2x""></i></button></div>
           </div>
           <div class="ad-Controls-container">
+            <!-- <ul class="nav nav-tabs" id="script-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="AgvScript-tab" data-toggle="tab" href="#AgvScript" role="tab" aria-controls="AgvScript" aria-selected="true">AgvScript</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " id="AutoPilotScript-tab" data-toggle="tab" href="#AutoPilotScript" role="tab" aria-controls="AutoPilotScript" aria-selected="true">AutoPilotScript</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              
+            </div> -->
             <div class="ad-Control-listgroup">
               <ul class="list-group" id="script_list">
                 <li class="list-group-item list-group-item-action list-group-item-primary">test</li>
@@ -203,8 +214,8 @@
             <div class="ad-Control"><label class="ad-Control-label">Yaw</label>
               <input id="Shelf_Yaw" class="ad-Text" type="text">
             </div>
-            <div class="ad-Control"><button id="Shelf_turn_left" class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
-            <div class="ad-Control"><button class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button id="ShelfTurnLeft-button" class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-undo fa-2x" style="color: var(--purple-l);"></i></button></div>
+            <div class="ad-Control"><button id="ShelfTurnRight-button" class="ad-Button ad-Button--reset" type="button" onclick="Shelf_up"><i class="fas fa-redo fa-2x" style="color: var(--purple-l);"></i></button></div>
           </div>      
         </div>
       </div>
@@ -352,11 +363,12 @@ window.Control = {
             }
         });
     },
-    pre_getAGVStatus: function (name, code) {
+    pre_getAGVStatus: function (name, code, param = new Array) {
         system.ajax_request(this.requestDATAURL, 
         {
             Name: name,
             Cmd: code,
+            Param: param,
         },
         {
             success: function (data) {
@@ -367,6 +379,16 @@ window.Control = {
                 if (data['StatusCode'] === 0) {
                     builder.setPosition(name, data['Attitude']['Code'], data['Attitude']['Yaw']);
                 }
+                // builder.showScript(data['Script']);
+                console.log("AGVStatus", builder.selectPosition);
+                if(builder.selectPosition !== null){
+                  if(typeof data['Priview'][builder.selectPosition] !== "undefined"){
+                    builder.showPreviewPath(data['Priview'][builder.selectPosition]);
+                  }else if(builder.selectPosition == "060060" && (typeof data['Priview']["060050"] !== "undefined")){
+                    builder.showPreviewPath(data['Priview']["060050"]);
+                  }
+                }
+                
             },
             failed: function (data) {
                 console.log("getAGVStatus - failed", data);
@@ -395,16 +417,91 @@ window.Control = {
         }
       }
     },
-
-    setAGVPosition: function () {
+    getMainAGVPathScript: function (position) {
+      // var param = [];
+      // param['code'] = code;
+      // param['yaw'] = 0;
+      system.ajax_request(this.requestDATAURL, 
+        {
+            Name: Control.service[Control.main].id,
+            Cmd: 101,
+            Param: {code: position, yaw: 0},
+        },
+        {
+            success: function (data) {
+                // // console.log("getAGVStatus - success", data);
+                // // Control.setAGVStatus(data);
+                // // builder.update_ControlData(data);
+                // // if (data['StatusCode'] === 0) {
+                // //     builder.setPosition(Control.service[Control.main].id, data['Attitude']['Code'], data['Attitude']['Yaw']);
+                // // }
+                // builder.showScript(data['Script']);
+            },
+            failed: function (data) {
+                console.log("getAGVStatus - failed", data);
+            }
+        });
+    },
+    setAGVPosition: function (code) {
       var param = {};
-      param['code'] = "000020";
+      param['code'] = code;
       param['yaw'] = 0;
       this.pre_AGVGateway(this.service[this.main].id, -1000, param);
     },
     do_mainAGVGATEWAY: function(code, param = new Array) {
       this.pre_AGVGateway(Control.service[Control.main].id, code, param);
-    }
+    },
+    pre_setAGVPosition: function (code) {
+      this.pre_AGVGateway()
+      this.do_setAGVPotition(code);
+    },
+    do_setAGVPotition: function (position) {
+      system.ajax_request(this.requestGETAWAYURL, 
+        {
+            Name: Control.service[Control.main].id,
+            Cmd: -1000,
+            Param: {code: position, yaw: 0},
+        },
+        {
+            success: function (data) {
+                // // console.log("getAGVStatus - success", data);
+                // // Control.setAGVStatus(data);
+                // // builder.update_ControlData(data);
+                // // if (data['StatusCode'] === 0) {
+                // //     builder.setPosition(Control.service[Control.main].id, data['Attitude']['Code'], data['Attitude']['Yaw']);
+                // // }
+                // builder.showScript(data['Script']);
+            },
+            failed: function (data) {
+                console.log("getAGVStatus - failed", data);
+            }
+        });
+    },
+    // do_setAGVPotition: function (position) {
+    //   system.ajax_request(this.requestGETAWAYURL, 
+    //     {
+    //         Name: Control.service[Control.main].id,
+    //         Cmd: -1000,
+    //         Param: {code: position, yaw: 0},
+    //     },
+    //     {
+    //         success: function (data) {
+    //             // // console.log("getAGVStatus - success", data);
+    //             // // Control.setAGVStatus(data);
+    //             // // builder.update_ControlData(data);
+    //             // // if (data['StatusCode'] === 0) {
+    //             // //     builder.setPosition(Control.service[Control.main].id, data['Attitude']['Code'], data['Attitude']['Yaw']);
+    //             // // }
+    //             // builder.showScript(data['Script']);
+    //         },
+    //         failed: function (data) {
+    //             console.log("getAGVStatus - failed", data);
+    //         }
+    //     });
+    // },
+    do_AGVCharging: function () {
+      this.pre_AGVGateway(Control.service[Control.main].id, -1001);
+    },
 }
 
 window.calculate = {
@@ -481,6 +578,7 @@ window.builder = {
       "7000": "離開充電站 - 距離",
       "10000": "往前走",
     },
+    selectPosition: null,
     loading: false,
     Absolute_X: [0, 78, 156, 233, 311, 390, 468],
     Absolute_Y: [0, 78, 156, 234, 314, 391, 469],
@@ -507,7 +605,6 @@ window.builder = {
         this.setPreviewPaths(data['Priview']);
     },
     viewMap: function (map) {
-      console.log(map);
       $("#map tr").remove();
       for(var i in map){
         var DOM = $(`<tr></tr>`);
@@ -531,25 +628,26 @@ window.builder = {
       }
     },
     showScript: function(data) {
+      // console.log(data);
       $('#script_list >li').remove();
       for(var script in data){
         var code = parseInt(data[script].Code);
-        var DOM = $(`<li class="list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center"></li>`);
+        var DOM = $(`<li class="list-group-item list-group-item-action list-group-item-success d-flex justify-content-between align-items-center"></li>`);
         // console.log(data[script].Code);
         if(typeof builder.AGVScript[code] !== "undefined"){
           DOM.text(builder.AGVScript[code]);
         }else if(code>=500 && code<600){
           DOM.text(builder.AGVScript["500"]);
-          DOM.append(`<span class="badge badge-primary badge-pill">${(code%500)}</span>`);
+          DOM.append(`<span class="badge badge-success badge-pill">${(code%500)}</span>`);
         }else if(code>=6000 && code<7000){
           DOM.text(builder.AGVScript["6000"]);
-          DOM.append(`<span class="badge badge-primary badge-pill">${(code%6000)}</span>`);
+          DOM.append(`<span class="badge badge-success badge-pill">${(code%6000)}</span>`);
         }else if(code>=7000 && code<8000){
           DOM.text(builder.AGVScript["7000"]);
-          DOM.append(`<span class="badge badge-primary badge-pill">${(code%7000)}</span>`);
+          DOM.append(`<span class="badge badge-success badge-pill">${(code%7000)}</span>`);
         }else if(code>=10000){
           DOM.text(builder.AGVScript["10000"]);
-          DOM.append(`<span class="badge badge-primary badge-pill">${(code%10000)/100}</span>`);
+          DOM.append(`<span class="badge badge-success badge-pill">${(code%10000)/100}</span>`);
         }else{
           DOM.text(code);
         }
@@ -557,6 +655,7 @@ window.builder = {
       }
     },
     setPosition: function (id, code, yaw) {
+        // console.log("Move", id, code, yaw);
         $('#'+id).css({
             top: this.Absolute_X[parseInt(code[1])]+"px",
             left: this.Absolute_Y[parseInt(code[4])]+"px",
@@ -585,6 +684,7 @@ window.builder = {
             // set service radio
           if(Control.service[sv].disable === true) {
             $("#" + Control.service[sv].id + "_Radio").attr("disabled", true);
+            $("#" + Control.service[sv].id + "_Radio").parent().find(".ad-Choice-fake").addClass("disabled-radio");
           }else{
             $("#" + Control.service[sv].id + "_Radio").on("click", this.setServiceRadio);
             console.log($("#" + Control.service[sv].id + "_Radio"));
@@ -618,7 +718,9 @@ window.builder = {
       $("#map").mouseout(function(){
         builder.clearPreviewPath();
       });
+      this.setControlButtom();
     },
+    
     setControlButtom: function () {
 
     },
@@ -632,6 +734,9 @@ window.builder = {
     setLoading: function (e) {
       Control.service[Control.main].isLoading = $("#Loading_CheckBox").is(":checked");
       console.log(Control.service[Control.main].isLoading);
+    },
+    setMainGateWayFunction: function(e){
+      Control.do_mainAGVGATEWAY(e.target.value.toString());
     },
     setFovLock: function () {
       var yaw = 0;
@@ -651,11 +756,38 @@ window.builder = {
       }
       Autopilot_Path = [];
     },
+    showPreviewPath: function (array) {
+      console.log("DeBug", array);
+      // return;
+      var length = array.length;
+      var index = length - 1;
+      array.map((_code, i) => {
+            Autopilot_Path.push(_code);
+            if(_code == "060050") {
+              $('#' + _code).css('color', 'rgb(81, 207, 102, ' + (index--)/length + ')');
+            }else{
+              $('#' + _code).append(`<i class="far fa-dot-circle" style="color: rgb(81, 207, 102, ` + (index--)/length + `)"></i>`);
+            }
+          });
+      if(builder.selectPosition == "060050"){
+        $('#060050').css('color', 'var(--green-l)');
+      }else if(builder.selectPosition == "060060"){
+        $('#060050').css('color', 'var(--green-l)');
+        $('#060060').css('color', 'var(--yellow-l)');
+      }else{
+        var DOM = `<i class="fas fa-bullseye fa-lg static-i" style="color: var(--green-l);"></i>`;
+        $(DOM).unbind("click").click(function(){
+          $(DOM).css('color', 'var(--green-d)');
+        });
+        $('#'+builder.selectPosition).append(DOM);
+      }
+    },
     setPreviewPaths: function (data) {
       var i = 0;
       for (var point in data) {
         if (point == Control.service[Control.main].code) continue;
         $('#' + point).unbind("mouseover").mouseover( function () {
+          builder.selectPosition = null;
           builder.clearPreviewPath();
           var length = data[this.id].length;
           var index = length - 1;
@@ -679,9 +811,15 @@ window.builder = {
           }
 
           $('#' + this.id).unbind("click").click(function(){
+            builder.selectPosition = this.id;
+            console.log("setSelectPosition", builder.selectPosition);
             $('#' + this.id).css('color', 'var(--green-d)');
             if($("#Autopilot_CheckBox").is(":checked")){
-              console.log("GoPosition", this.id);
+              console.log("go - GoPosition", this.id);
+              Control.setAGVPosition(this.id);
+            }else{
+              console.log("pre - GoPosition", this.id);
+              Control.getMainAGVPathScript(this.id);
             }
           });
           Autopilot_Path.push(this.id);
@@ -696,21 +834,24 @@ window.builder = {
 
         $("#060060").unbind("click").click(function () {
           $('#' + this.id).css('color', 'var(--yellow-d)');
-
+          builder.selectPosition = "060060";
           if($("#Autopilot_CheckBox").is(":checked")){
-            console.log("POST CODE", -1001);
+            console.log("do - GoCharging");
+            Control.do_AGVCharging();
+          }else{
+            console.log("pre - GoCharging");
+            Control.getMainAGVPathScript("060050");
           }
         });
-      }
+      }        
     }
 }
 document.addEventListener("DOMContentLoaded", function () {
-  console.log(builder.Autopilot_Path);
   builder.viewMap();
   builder.basicPrepare();
   // builder.setPreviewPaths();
-  Control.getMainAGVStatus();
-  // setInterval("Control.getAllAGVStatus()", 1000);
+  // Control.getMainAGVStatus();
+  setInterval("Control.getAllAGVStatus()", 1000);
 });
 </script>
 </html>
